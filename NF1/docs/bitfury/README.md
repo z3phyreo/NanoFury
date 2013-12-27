@@ -737,66 +737,71 @@ and [later wrote](https://bitcointalk.org/index.php?topic=228677.msg3242089#msg3
 >
 >Of 16 chips total, 10 have found nonces in all cores. The other 6 all have one or more missing rows at the top.
 
-===== Performance Testing And Results =====
+#### Performance Testing And Results
 
-[[https://bitcointalk.org/index.php?topic=242745.msg3234190#msg3234190]] (google-translated)
->I have 3.4GH (3.2 after taking errors into account) almost without any capacitors (it's almost the same and makes no difference when there are just a few hundred uF) but chip burns 4.6A at 1.246V and most importantly - 1mV accuracy is needed for normal operation. Another chip "likes" slighlty different voltage, so you can't put several chips together on one board or run them in a series.
+[Source](https://bitcointalk.org/index.php?topic=242745.msg3234190#msg3234190) (google-translated)：
+> I have 3.4GH (3.2 after taking errors into account) almost without any capacitors (it's almost the same and makes no difference when there are just a few hundred uF) but chip burns 4.6A at 1.246V and most importantly - 1mV accuracy is needed for normal operation. Another chip "likes" slighlty different voltage, so you can't put several chips together on one board or run them in a series.
 (Original)
 >У меня 3.4Гх (3.2 после отчета ошибок) почти без кондесаторов (то же самое без разницы когда несколко сотен мФ), но чип жрет 4.6А на 1.246В и самое главное 1мВ точность нужна для нормальной работы - другой чип 'любит' чуть чуть другое напрежение так что ето никак не сделать для несколко чипов одновременно или для серийной платы 
 
-[[https://bitcointalk.org/index.php?topic=242745.msg3248840#msg3248840]]
->I have 300kHz (SPI speed), changed surrounding capacitors - min 3x100nF, then 6x100nF, then added 6.6uF, then added (and replaced/tested with) 22, 100 and 470uF - no difference
->Produces normally without errors 2.3GH at 0.8V - 1.5V ... 0.65W/GH
->Then the errors start and just produces more heat ... about maximum I wrote [[https://bitcointalk.org/index.php?topic=242745.msg3234190#msg3234190|here (same as above)]]
-(original)
->У меня тоже 300кГц, обвязку менял: мин 3х100нф, потом 6х100нф, дальше ставил 6.6мкф, потом к ним ставил (менял) 22, 100 или 470мкф - разницы нет
->Выдает нормально без ошибок 2.3Гх на 0.8в - 1.5Вт ... 0.65Вт/Гх
->Потом начинаются ошибки и жрет больше ... про максимум писал [[https://bitcointalk.org/index.php?topic=242745.msg3234190#msg3234190|сдес (same as above)]]
+[Source](https://bitcointalk.org/index.php?topic=242745.msg3248840#msg3248840):
+> I have 300kHz (SPI speed), changed surrounding capacitors - min 3x100nF, then 6x100nF, then added 6.6uF, then added (and replaced/tested with) 22, 100 and 470uF - no difference
+> Produces normally without errors 2.3GH at 0.8V - 1.5V ... 0.65W/GH
+> Then the errors start and just produces more heat ... about maximum I wrote [here (same as above)](https://bitcointalk.org/index.php?topic=242745.msg3234190#msg3234190)(original)
+> У меня тоже 300кГц, обвязку менял: мин 3х100нф, потом 6х100нф, дальше ставил 6.6мкф, потом к ним ставил (менял) 22, 100 или 470мкф - разницы нет
+> Выдает нормально без ошибок 2.3Гх на 0.8в - 1.5Вт ... 0.65Вт/Гх
+> Потом начинаются ошибки и жрет больше ... про максимум писал [[https://bitcointalk.org/index.php?topic=242745.msg3234190#msg3234190|сдес (same as above)]]
 
-====== Sample boards ======
+### Chip Test Boards
 
-^ NOTE | Just skip to the last board as there were bugs in the first ones - they're just as a reference and keeping track and completeness |
+| NOTE | Just skip to the last board as there were bugs in the first ones - they're just as a reference and keeping track and completeness |
 
-==== v1.1 ====
-intron's v1.1 board: [[https://bitcointalk.org/index.php?topic=228677.msg2418726#msg2418726]]
-{{ http://i.imgur.com/TPcptbv.gif }}
+#### intron's test boards
+##### v1.1
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2418726#msg2418726):
 
-==== v1.2 ====
+![](http://i.imgur.com/TPcptbv.gif)
 
-intron's v1.2 : [[https://bitcointalk.org/index.php?topic=228677.msg2420649#msg2420649]]
-<code>
+##### v1.2
+
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2420649#msg2420649):
+
+>  
 Last version of 'Bitfury Test Jig': http://imgur.com/5gb5qJx
-
+>  
 Now with M3 mounting holes to fasten it to a heat sink,
 1V8 - 3V3 level shifter, test pins for various signals, big
 solder tabs for 0V5..0V9 core power connections and
 a bit more decoupling.
-
+>  
 It's a bi-layer and 1200x1400 mils in size (approx. 30x35 mm).
+> 
+> intron
 
-intron
-</code>
-{{ http://i.imgur.com/5gb5qJx.gif }}
+![](http://i.imgur.com/5gb5qJx.gif)
 
-==== Finished v1.2 ====
+----
+Finished v1.2
 
-bitfury's test board: [[https://bitcointalk.org/index.php?topic=183368.msg2483673#msg2483673|source]] which really was a completed version of intron's - first reported [[https://bitcointalk.org/index.php?topic=228677.msg2476353#msg2476353]]
-{{ http://i.imgur.com/K30DoxD.jpg |test board }}
+[bitfury's test board:](https://bitcointalk.org/index.php?topic=183368.msg2483673#msg2483673) which really was a completed version of intron's - [first reported here](https://bitcointalk.org/index.php?topic=228677.msg2476353#msg2476353)
 
-==== Finished v1.2 closeup ====
+![test board](http://i.imgur.com/K30DoxD.jpg)
 
-[[https://bitcointalk.org/index.php?action=profile;u=34419|ZPK]] was among the first testers and he [[https://bitcointalk.org/index.php?topic=183368.msg2489906#msg2489906|reported here]] his semi-assembled first board: (which was actually first reported by intron here: [[https://bitcointalk.org/index.php?topic=228677.msg2489891#msg2489891]])
-{{ http://s05.radikal.ru/i178/1306/18/7efd0497706b.jpg |semi-assembled board}}
+Finished v1.2 closeup
 
-==== v1.3 ====
+[ZPK](https://bitcointalk.org/index.php?action=profile;u=34419) was among the first testers and he [reported here](https://bitcointalk.org/index.php?topic=183368.msg2489906#msg2489906) his semi-assembled first board: (which was actually first reported by intron [here](https://bitcointalk.org/index.php?topic=228677.msg2489891#msg2489891))
 
-[[https://bitcointalk.org/index.php?topic=228677.msg2492863#msg2492863]]
-<code>
-Another picture made by c-scape of a mounted ASIC, now
+![Pictures](http://s05.radikal.ru/i178/1306/18/7efd0497706b.jpg)
+
+##### v1.3
+
+https://bitcointalk.org/index.php?topic=228677.msg2492863#msg2492863
+
+> Another picture made by c-scape of a mounted ASIC, now
 with some decoupling:
-
+> 
 http://imgur.com/UhL9hQv
-
+> 
 Next step is power sequencing. bitfury is rather anxious
 about "frying" the chip due to applying the power to the
 different nets in an incorrect manner. Must incorporate
@@ -804,137 +809,150 @@ an hi-side power switch (might be as simple as an p-FET
 and some resistors) somewhere and control this switch
 with firmware. Will work on this before actual ASICs are
 put in jeopardy:)
-
+> 
 intron
-</code>
-{{ http://i.imgur.com/UhL9hQv.jpg }}
-further: [[https://bitcointalk.org/index.php?topic=228677.msg2498475#msg2498475]] by bitfury :
-<code>
+
+![]http://i.imgur.com/UhL9hQv.jpg
+
+[Further:](https://bitcointalk.org/index.php?topic=228677.msg2498475#msg2498475) by bitfury :
+
+>  
 Well... First results...
-
+> 
 Board seems to be good enough at least for lower-power test! We placed 15 1uF murata capacitors. We placed also 10 uF kemet capacitors where tantalum capacitors were expected and into input vdd we placed 1000 uF electrolytic cap. Connected this to lab power supply. Should be good enough.
-
+> 
 Connected power to IOVDD as well. IOREF was tied to VDD (sorry no 0402 resistors at hand).
-
+> 
 Before applying power - I've used multimeter and checked all ESD diodes - good way also to check that all connections are in place - on every pin there's path to IOVDD and path to GND - you can check it - say there's diode between GND |>| INCLK and diode between INCLK |>| IOVDD - by checking them you'll know that chip ESD not broken at that all connections are in place.
-
+> 
 Then - checked buffer issues... Well with 100 mV hysteresis they're sensitive bitches. So DO NOT APPLY SLOW RISING SIGNALS.
-
+> 
 For raspberry pi solution was pretty straightforward - just load output with 50 Ohms and you'll get voltage divided to about 1.8 V, nice sharp edges and no ringing!!!
-
+> 
 This is what should be done instead of series resistor and zeners. This likely may be reason why Taiwan test failed.
-</code>
 
-and some back-and-forth between intron and bitfury about the zener diodes vs resistors: [[https://bitcointalk.org/index.php?topic=228677.msg2498595#msg2498595]].
+and some back-and-forth between intron and bitfury about the zener diodes vs resistors: https://bitcointalk.org/index.php?topic=228677.msg2498595#msg2498595.
 
-==== feedback on v1.3 about bad zeners/resistors decision ====
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2522441#msg2522441]]
-<quote>
+----
+feedback on v1.3 about bad zeners/resistors decision
+[Source:](https://bitcointalk.org/index.php?topic=228677.msg2522441#msg2522441)
+
+>  
 You were right bitfury, the initial input level shifter circuit
 was not working correctly. Seems the the parasitic capacitance
 of the 1V8 zener together with the 1K input resistance caused
 severe detoriation of the waveform due to the RC-delay.
-
+>  
 Redid the circuit: increased the current by lowering the
 resistance to ground and replaced the zener with a 3V3
 type connected directly to in the inputs. Did also some
 measurements, looked not that bad. Inputs SPI signals are
 divided to 1V8, output SPI signal is level shifted to 3V3.
 See image:
-
+>  
 http://imgur.com/A1SaAz3
-
+>  
 This is still with a bare board, no ASIC yet. Might need
 to lower the restistors even further to get crisp edges.
-
+>  
 Will first look into the SPI code now.
-
+>  
 intron
-</code>
 
-Eventually he got it working: [[https://bitcointalk.org/index.php?topic=228677.msg2551630#msg2551630]]
-<code>
+Eventually he got it working: https://bitcointalk.org/index.php?topic=228677.msg2551630#msg2551630
+
+>  
 Got bitfury's SPI code working, needed some porting to the smaller
 ARM processor, and the ASIC responded nicely. Voltage was adjusted
 to 0V64, yielding a current of 1 A. Clock was measured, 116 Mc.
-
+>  
 bitfury's testvectors were applied to the ASIC and 100 vectors
 gave 145 results, not unlike the result bitfury himself got.
-
+>  
 The level shifter in the original schematic works just fine,
 so I guess there is no need to fall back to analog pass logic
 tricks:) To be safe core power was applied first, then IOVDD.
 This was done manually, will be automated in a later design.
-
+>  
 intron | c-scape
-</code>
 
-and eventually: [[https://bitcointalk.org/index.php?topic=228677.msg2568673#msg2568673]]
-<code>
+and eventually: https://bitcointalk.org/index.php?topic=228677.msg2568673#msg2568673
+>  
 Latest test was done to maximize performance, while
 keeping chip temperature below 50 degrees C. A small
 heatsink was mounted on the bottom of the PCB, and
 cooled with a fan to control the temperature.
-
+>  
 Internal oscillator set to slow mode, using { 0xFF, 0xFF,
 0xFF, 0xFF, 0xFF, 0xFF, 0x3F, 0x00 } configuration, which
 is slightly faster than bitfury's example code.
-
+>  
 Vcore at 0.835 Volts, resulting in 2.5A current (2.1W). Clock
 frequency of 230 MHz. Instead of bitfury's test vectors, a
 test was done with 2048 more or less random vectors.
 Based on 756 cores, a yield of 1512 valid hashes would be
 expected, but 1511 were found, so COP is very close to 1.
-
+>  
 Net hash rate would be almost 2.7 GH/sec @ 0.8W/GH.
-
+>  
 With one extra clock bit, core clock increased, but COP
 ropped to 0.94, resulting in lower net hash rate.
-
+>  
 http://imgur.com/g7UTw6V
-</code>
-{{ http://i.imgur.com/g7UTw6Vl.jpg }}
 
-==== Fully assembled board ====
+![](http://i.imgur.com/g7UTw6Vl.jpg)
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2569569#msg2569569]]
-{{ http://i.imgur.com/QZYoGDQ.jpg }}
+##### Fully assembled board
 
-==== Working board ====
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2611915#msg2611915]]
-<code>
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2569569#msg2569569)
+![](http://i.imgur.com/QZYoGDQ.jpg)
+
+##### Working board
+[Source:](https://bitcointalk.org/index.php?topic=228677.msg2611915#msg2611915)
+>  
 Picture of the makeshift miner: http://imgur.com/2P4JZDR
-
+>  
 Code is running on the ARM Cortex M3, getting work from
 the pool and sending results back using on-board Ethernet.
-</code>
-{{ http://i.imgur.com/2P4JZDR.jpg }}
 
+![](http://i.imgur.com/2P4JZDR.jpg)
 
 -----
+[Source:](https://bitcointalk.org/index.php?topic=228677.msg2859806#msg2859806)
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2859806#msg2859806]]
-
->We did a test with a single bitfury, and with about 2 Amps power we got nearly 2.5 GH/s. See:
->[[https://bitcointalk.org/index.php?topic=228677.msg2611999#msg2611999]]
+> We did a test with a single bitfury, and with about 2 Amps power we got nearly 2.5 GH/s. See:
+> https://bitcointalk.org/index.php?topic=228677.msg2611999#msg2611999
 > intron_2 = BF chip
-{{ http://i.imgur.com/CYF9qEIl.gif }} or large at [[http://i.imgur.com/CYF9qEI.gif]]
 
-==== intron's future USB dual-BF ====
+![](http://i.imgur.com/CYF9qEIl.gif) 
+[Larger picture](http://i.imgur.com/CYF9qEI.gif)
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2859481#msg2859481]]
-{{ http://i.imgur.com/75M5PGUl.gif }} or large [[http://i.imgur.com/75M5PGU.gif]]
+#### intron's future USB dual-BF
 
-==== intron's finished Bi-Fury ====
+[Source:](https://bitcointalk.org/index.php?topic=228677.msg2859481#msg2859481)
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2938071#msg2938071]]
-{{ http://i.imgur.com/VtzrJy8l.jpg }} or large: [[http://i.imgur.com/VtzrJy8.jpg]]
-==== arlumba's working board ====
+![](http://i.imgur.com/75M5PGUl.gif)
 
-source: [[https://bitcointalk.org/index.php?topic=242745.msg2720673#msg2720673]]
-{{ http://i.imgur.com/U2jQaf4l.jpg }} or large at [[http://i.imgur.com/U2jQaf4.jpg]]
+[Large picture](http://i.imgur.com/75M5PGU.gif)
 
-Note on this board the dual-row connector - white cables are going to pins 19, 21 and 23 (see [[http://techfreak.pl/wp-content/uploads/2013/01/Diagram-includes-BCM-GPIO-references.png|this]] image), which corresponds to those lines from ''spidev.c'':
+#### intron's finished Bi-Fury
+
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2938071#msg2938071)
+
+![](http://i.imgur.com/VtzrJy8l.jpg)
+
+[Larger picture](http://i.imgur.com/VtzrJy8.jpg)
+
+#### arlumba's working board
+
+[Source:](https://bitcointalk.org/index.php?topic=242745.msg2720673#msg2720673)
+
+![](http://i.imgur.com/U2jQaf4l.jpg) 
+
+[Larger picture](http://i.imgur.com/U2jQaf4.jpg)
+
+Note on this board the dual-row connector - white cables are going to pins 19, 21 and 23 (see this image ![](http://techfreak.pl/wp-content/uploads/2013/01/Diagram-includes-BCM-GPIO-references.png), which corresponds to those lines from ''spidev.c'':
+
 <code c>
 	INP_GPIO(10); OUT_GPIO(10);
 	INP_GPIO(11); OUT_GPIO(11);
@@ -956,183 +974,196 @@ Note on this board the dual-row connector - white cables are going to pins 19, 2
 
 where: GPIO_9=MISO, GPIO_10=MOSI and GPIO_11=SPI_CLK
 
+and closeup:
 
-and closeup: \\
-{{ http://i.imgur.com/fI316axl.jpg }} or large at: [[http://i.imgur.com/fI316ax.jpg]]
+![](http://i.imgur.com/fI316axl.jpg) 
+
+[Larger picture](http://i.imgur.com/fI316ax.jpg)
 
 and another closeup: 
-{{ http://i.imgur.com/ZCdSbFb.jpg }}
+
+![](http://i.imgur.com/ZCdSbFb.jpg)
 
 ----
+[another closeup](https://bitcointalk.org/index.php?topic=242745.msg2848926#msg2848926)
 
-another closeup: [[https://bitcointalk.org/index.php?topic=242745.msg2848926#msg2848926]]
 > Это у двух чипов? У меня 2.2Gh стабильно при 0.78v, 60 едениц. Какие кондеры, в каком количестве используешь?
 > Скоро проверю версию 1.1 моего кастома, на 0.5мм текcтолите 
-{{ http://i.imgur.com/7Gw39DG.png }}
 
+![](http://i.imgur.com/7Gw39DG.png)
 
-==== needbmw's working board ====
+#### needbmw's working board
 
-source: [[https://bitcointalk.org/index.php?topic=242745.msg2808468#msg2808468]]
+[Source:](https://bitcointalk.org/index.php?topic=242745.msg2808468#msg2808468)
 
-{{ http://i.imgur.com/VNBcRzj.jpg }}
+![](http://i.imgur.com/VNBcRzj.jpg)
 
-{{ http://i.imgur.com/BMwDKpl.jpg }}
+![](http://i.imgur.com/BMwDKpl.jpg)
 
 ----
-and another (later) design: [[https://bitcointalk.org/index.php?topic=242745.msg2819816#msg2819816]] :
+and [another (later) design:](https://bitcointalk.org/index.php?topic=242745.msg2819816#msg2819816)
 > Мой вариант блейда на чипах bitfury.
 > Также можно просто без рэка подключить шлейфом распи (плата даст на неё питание).
 > Питальники 2х30А взяты с запасом под разгон.
 
-{{ http://i.imgur.com/rBDJxxS.png }}
+![](http://i.imgur.com/rBDJxxS.png)
 
-=== Speed And GH/s ===
+### Speed And GH/s
 [[https://bitcointalk.org/index.php?topic=228677.msg3033864#msg3033864]]
->SPI clock 500 kHz, core voltage 0.88V, internal slow osc 54 bits.
-==== zulunation's test board ====
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2819490#msg2819490]] \\
-and a few more details at [[https://bitcointalk.org/index.php?topic=242745.msg2818886#msg2818886]]: \\
+> SPI clock 500 kHz, core voltage 0.88V, internal slow osc 54 bits.
+
+#### zulunation's test board
+
+[Source:](https://bitcointalk.org/index.php?topic=228677.msg2819490#msg2819490)
+and a few more details at https://bitcointalk.org/index.php?topic=242745.msg2818886#msg2818886
+
 > Запустил пока один чип на минимальном питании 0.6V. Клок 78MHz. Скорость 800-900 MH/s.
 > Потребление 12V.100mA. Это на все.
 
-{{ https://dl.dropboxusercontent.com/u/26351037/bitfury_2x_pcb.jpg?648x384 }}
+![](https://dl.dropboxusercontent.com/u/26351037/bitfury_2x_pcb.jpg)
 
-==== t309 ====
+#### t309
+[Source:](https://bitcointalk.org/index.php?topic=242745.msg2862825#msg2862825)
+![](http://i.imgur.com/ZTDu7KQl.jpg
 
-source: [[https://bitcointalk.org/index.php?topic=242745.msg2862825#msg2862825]]
-{{ http://i.imgur.com/ZTDu7KQl.jpg }} or large: [[http://i.imgur.com/ZTDu7KQ.jpg]]
-====== Guidelines And Test Reports ======
+[Larger picture](http://i.imgur.com/ZTDu7KQ.jpg)
 
-==== First test ====
+### Guidelines And Test Reports
 
-bitfury posted his [[https://bitcointalk.org/index.php?topic=183368.msg2498405#msg2498405|first testing]] results: (RU)
+#### First test
+
+bitfury posted his [first testing](https://bitcointalk.org/index.php?topic=183368.msg2498405#msg2498405) results: (RU)
+>  
   * double check ESD protection - all diodes must check good
   * SPI bus - needs very fast rise/fall signals.
   * I/O voltage: 1.8V MAX!!! (so processor running at 3.3V will need an interface circuit)
 
-==== First power usage reports ====
+#### First power usage reports
 
-as posted [[https://bitcointalk.org/index.php?topic=183368.msg2499516#msg2499516|here]] :
-<code>
+as posted [here](https://bitcointalk.org/index.php?topic=183368.msg2499516#msg2499516):
+>  
+````
 0.596 V 0.673 A 86 Mhz 1 GH/s 0.4 W 0.4 W / Gh/s
 0.596 V 1.049 A 145 Mhz 1.68 Gh/s 0.62 W 0.37 W / Gh/s
 0.596 V 1.516 A 235 Mhz 2.73 Gh/s 0.9 W 0.33 W / Gh/s
 0.596 V 2 A 320 Mhz 3.72 Gh/s 1.19 W 0.32 W / Gh/s
 0.596 V 1.931 A 400 Mhz 4.65 Gh/s 1.15 W 0.24 W / GH/s (обращаю внимание - ТУТ УЖЕ НЕ СЧИТАЕТ!)
-
+````
+>  
 Далее по напряжениям:
+````
 0.65 V 2.56 A 410 Mhz 4.77 Gh/s 1.67 W 0.35 W / Gh/s
 0.687 V 2.997 A 467 Mhz 5.43 Gh/s 2.06 W 0.38 W / Gh/s
 0.545 V 1.52 A 280 Mhz 3.26 Gh/s 0.83 W 0.25 W / Gh/s
 0.5 V 1.07 A 216 Mhz 2.5 Gh/s 0.54 W 0.21 W / Gh/s
-</code>
+````
 
-==== First functionality test ====
-[[https://bitcointalk.org/index.php?topic=183368.msg2508369#msg2508369|source]]: (RU)
-  * <del>[[https://mega.co.nz/#!CMcjxD4B!D5NxaCIHIFA96dTZpeXCd29RKdwh7mkSXz-n9Yzxqt4]] - sample testing program</del>; //<del>Also available here: {{:spic.tgz}}</del> link is just for reference; there is a better file - see spic1.tgz later//
+#### First functionality test
+[source](https://bitcointalk.org/index.php?topic=183368.msg2508369#msg2508369): (RU)
+* <del>[[https://mega.co.nz/#!CMcjxD4B!D5NxaCIHIFA96dTZpeXCd29RKdwh7mkSXz-n9Yzxqt4]] - sample testing program</del>; //<del>Also available here: {{:spic.tgz}}</del> link is just for reference; there is a better file - see spic1.tgz later//
   * Made level shifter from BC817-40 1.8 -> 3.3V - works, but reliable SPI at 100 kHz; Should be able to achieve 200 kHz.
 
+#### Further (and better) test results and sample program
+Reported [herer](https://bitcointalk.org/index.php?topic=183368.msg2515577#msg2515577): (RU)
+  * Sample program: https://mega.co.nz/#!yVMTTCSA!SFsVTAWeMSnxwUeuRnwR0Wm_d74xVyOdxkL5LEI_LsQ]], 
+  * also available here: {{:spic1.tgz}}
 
-==== Further (and better) test results and sample program ====
-Reported [[https://bitcointalk.org/index.php?topic=183368.msg2515577#msg2515577|here]]: (RU)
-  * Sample program: [[https://mega.co.nz/#!yVMTTCSA!SFsVTAWeMSnxwUeuRnwR0Wm_d74xVyOdxkL5LEI_LsQ]], also available here: {{:spic1.tgz}}
-<code>
+>  
 Измерения ошибок и настоящего хеш-рейта производилось использовав 100 первых тестовых векторов (как разрешены в коде), плата не охлаждалась принудительно (впечатляет - работает на ПАССИВНОЙ 2-слойной борде сделанной Рене - intron - кстати большое ему СПАСИБО, единственное что пришлось INCLK и OUTMISO заземлить).
-
+> 
 Итак результаты:
-
+>  
+````
 0.596 V, 125 Mhz, 100 tasks sent, 122 solutions got, COP is 0.84 (122/145), Ideal 1.45 GH/s, Real 1.22 Gh/s
 0.596 V, 150 Mhz, 100 tasks sent, 19 solutions got, COP is 0.13 (19/145), Ideal 1.74 Gh/s, Real 0.23 Gh/s
 0.596 V, 78 Mhz, 0.6 Amps, 0.36 W, 100 tasks sent, 145 solutions got, COP is 1.0, Ideal 0.91 GH/s, Real 0.91 GH/s, 0.39 W/Gh/s
 0.596 V, 45 Mhz, 0.39 Amps, 0.23 W, 100 tasks sent, 145 solutions got, COP is 1.0, Ideal 0.52 Gh/s, Real 0.52 Gh/s, 0.44 W / Gh/s
 0.596 V, 96 Mhz, 0.725 Amps, 0.43 W, 100 tasks sent, 143 solutions got, COP is 0.986, Ideal 1.12 Gh/s, Real 1.1 Gh/s, 0.39 W / Gh/s
-
+````
 Прошу обратить внимание что 96 Mhz выглядит очень близким к лучшему решению... После я начал поднимать напряжения, НЕ ИЗМЕНЯЯ настройки осциллятора - он преднамерянно не стабилизирован по питанию, и его частота осцилляция должна следовать за напряжением питания. Что самое интересное- что когда увеличивается частота осцилляций, то error-rate практически не изменяется, благодаря соответствию характеристик транзисторов осциллятора и транзисторов логики в пределах одного кристалла.
-
+````
 0.7 V 140 Mhz 1.2 Amps 0.84 W 100 tasks, 143 solutions got, COP is 0.986, Ideal 1.63 Gh/s, Real 1.6 Gh/s, 0.52 W / GH/s
 0.8 V 180 Mhz 1.87 Amps 1.49 W 100 tasks, 139 solutions got, COP is 0.958, Ideal 2.093 Gh/s, Real 2 Gh/s, 0.75 W / GH/s
-0.9 V 214 Mhz 2.62 Amps 2.36 W 100 tasks, 132 solutions got, COP is 0.91, Ideal 2.48 Gh/s, Real 2.26 Gh/s, 1.04 W / Gh/s.
-
+0.9 V 214 Mhz 2.62 Amps 2.36 W 100 tasks, 132 solutions got, COP is 0.91, Ideal 2.48 Gh/s, Real 2.26 Gh/s, 1.04 W / Gh/s
+````
+>  
 Далее не тестировал - похоже не хватает охлаждения.
-</code>
 
-and more details in the English version reported at [[https://bitcointalk.org/index.php?topic=228677.msg2499572#msg2499572]]:
-<code>
+and more details in the English version reported [[https://bitcointalk.org/index.php?topic=228677.msg2499572#msg2499572 
+
+>  
 Raspberry Pi driver is about 50 Ohm pmos transistor resistor - with 1kohm you'll get shitty waveform. Just terminate with 50 Ohm and it will work!
-
+> 
 Inputs are CMOS, but currents goes in of course when you recharge capacitors. However input levels are sampled using buffer amplifiers (like operational/differential amplifiers), so logic levels may be any you like, just sharp enough edges. Somewhat similar to SSTL... This was built to be able to level-shift using just STRINGS!
-
+> 
 You can build devices! GREEN LIGHT! Code that I posted works.
-
+> 
 Garbage computation (internal logic misconfigured):
+````
 0.596 V 0.541 A 87 Mhz 1 GH/s 0.32 W 0.31 W / GH/s
 0.596 V 0.326 A 44 Mhz 0.5 GH/s 0.2 W 0.38 W / GH/s
 0.596 V 0.502 A 80 Mhz 0.93 GH/s 0.29 W 0.32 W / Gh/s
 0.596 V 0.853 A 155 Mhz 1.8 GH/s 0.5 W 0.282 W / GH/s
-
+````
 Please note that garbage computation consumes LESS POWER than when we compute SHA256 (right now I do not read data FROM chip as have to solder level shifter, but can have conclusions based just on power consumptions. So I can estimate frequency when it falls down:
+````
 0.596 V 0.673 A 86 Mhz 1 GH/s 0.4 W 0.4 W / Gh/s
 0.596 V 1.049 A 145 Mhz 1.68 Gh/s 0.62 W 0.37 W / Gh/s
 0.596 V 1.516 A 235 Mhz 2.73 Gh/s 0.9 W 0.33 W / Gh/s
 0.596 V 2 A 320 Mhz 3.72 Gh/s 1.19 W 0.32 W / Gh/s
 0.596 V 1.931 A 400 Mhz 4.65 Gh/s 1.15 W 0.24 W / GH/s (please note - HERE WE DO NOT COMPUTE USEFUL HASHES LIKELY!)
-
+````
 Then - voltage sweep (limited to 3 Amps now):
+````
 0.65 V 2.56 A 410 Mhz 4.77 Gh/s 1.67 W 0.35 W / Gh/s
 0.687 V 2.997 A 467 Mhz 5.43 Gh/s 2.06 W 0.38 W / Gh/s
 0.545 V 1.52 A 280 Mhz 3.26 Gh/s 0.83 W 0.25 W / Gh/s
 0.5 V 1.07 A 216 Mhz 2.5 Gh/s 0.54 W 0.21 W / Gh/s
-
+````
 Clock is set by using internal SLOW oscillator programmed with code:
 {0xff,0xff,0xff,0xff,0xff,0xff,0xff,0x0f}; - with code 0x1f not works
-</code>
 
-==== v0.1 communication protocol - Designed for Raspberry-Pi ====
 
-Source: [[https://bitcointalk.org/index.php?topic=228677.msg2459842#msg2459842]]\\
+#### v0.1 communication protocol - Designed for Raspberry-Pi
+
+[Source:](https://bitcointalk.org/index.php?topic=228677.msg2459842#msg2459842)
 //note: file is also available here: {{:spitest.tgz}} //
-<code>
-So I have finished v0.1 communication protocol with the chips :-) Designed for raspberry-pi. Use drivers.sh to modprobe specific
-modules before executing spitest.
 
+>  
+So I have finished v0.1 communication protocol with the chips :-) Designed for raspberry-pi. Use drivers.sh to modprobe specific modules before executing spitest.
+>  
 It can be used now to setup computations, test them or to fry chips by getting clocks to higher values....
-
+>  
 https://mega.co.nz/#!TJNXlCSB!evrBaGz9SNxHW4GLdFDokh2qG8BAgrBCBVRWIST8X0w
-
+>  
 it is very simple now - only bones and almost no meat.
-</code>
 
-=== Above code confirmed ===
-
-in this message: [[https://bitcointalk.org/index.php?topic=228677.msg2499572#msg2499572]]
-<code>
+Above code confirmed in [this message](https://bitcointalk.org/index.php?topic=228677.msg2499572#msg2499572):
+>  
 Raspi driver is about 50 Ohm pmos transistor resistor - with 1kohm you'll get shitty waveform. Just terminate with 50 Ohm and it will work!
-
+>  
 Inputs are CMOS, but currents goes in of course when you recharge capacitors. However input levels are sampled using buffer amplifiers (like operational/differential amplifiers), so logic levels may be any you like, just sharp enough edges. Somewhat similar to SSTL... This was built to be able to level-shift using just STRINGS!
-
+>  
 You can build devices! GREEN LIGHT! Code that I posted works.
-
+>  
 ...(snip)...
-
+>  
 By the way board isn't bad at all - with 1 W we had 46 degrees board temperature with 26 degrees in a room... and it lives Smiley USB-stick could be nice product with these chips!
-</code>
 
-=== and later spic1.tgz sample code reconfirmed ===
-
-[[https://bitcointalk.org/index.php?topic=228677.msg2515472#msg2515472]] \\
+and later spic1.tgz sample code reconfirmed: https://bitcointalk.org/index.php?topic=228677.msg2515472#msg2515472
 //:!: NOTE: This is the same sample code as {{:spic1.tgz|}}//
 
 
-==== t309 test reports ====
+#### t309 test reports
 
-source: [[https://bitcointalk.org/index.php?topic=242745.msg3051990#msg3051990]]:
->>>ну что похоже ето предел 1f 00, 1.035v, 8милисекунд, 500килогерц, 40градусов - 6.3гигахаша с 2 чипов тоесть 3.15 с чипа (ето все на старом цгмайнере легкодымова)
->>Потребление какое Вт, Вт/Гх?
->пока напряжно мерять померяю отпишусь.
->>Отключи делитель, внешний клок и понизь частоту, попробуй эти варианты перебрать.
->какраз все ето и пробовал без делителя результаты хуже, а внешний клок отключил.
+[Source:](https://bitcointalk.org/index.php?topic=242745.msg3051990#msg3051990)
+
+>>> ну что похоже ето предел 1f 00, 1.035v, 8милисекунд, 500килогерц, 40градусов - 6.3гигахаша с 2 чипов тоесть 3.15 с чипа (ето все на старом цгмайнере легкодымова)
+>> Потребление какое Вт, Вт/Гх?
+> пока напряжно мерять померяю отпишусь.
+>> Отключи делитель, внешний клок и понизь частоту, попробуй эти варианты перебрать.
+> какраз все ето и пробовал без делителя результаты хуже, а внешний клок отключил.
 
 ### Later and Finished boards
 
@@ -1244,40 +1275,29 @@ Here are the design files...
 > http://bitfurystrikesback.com/bitfury_m-board-v2.3.sch.zip - M-Board v2.3
 > http://bitfurystrikesback.com/bitfury_h-card-v1.2.sch.zip - H-Card v1.2
 
-#### Other
+### FPGA Designs
 
-===== Original FPGA plans etc:
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2417706#msg2417706):
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2417706#msg2417706]]
+>> Quote from: drewh on June 09, 2013, 06:55:39 AM
+>> I’d love to check out his design philosophy, anyone got a link?
+> 
+> https://mega.co.nz/#!GIF1gYZK!M_8JowhsGc6wc2b3fsRHVCdst5w8UC0M2yq1RgHwDV8
+> 
+> Here's source code "as is" of all my fpga-related work.
 
-<code>
-Quote from: drewh on June 09, 2013, 06:55:39 AM
-I’d love to check out his design philosophy, anyone got a link?
-
-
-
-https://mega.co.nz/#!GIF1gYZK!M_8JowhsGc6wc2b3fsRHVCdst5w8UC0M2yq1RgHwDV8
-
-Here's source code "as is" of all my fpga-related work.
-
-There's hardmacro placer and
-btcser is core that gave 300 Mh/s+
-and
+> There's hardmacro placer and btcser is core that gave 300 Mh/s+ and
 different other tries - say 4 sha256 fully unrolled cores example.
 
-I have given sources already to some people expecting them to make bitstreams for say ZTEX boards, but it seems that they failed to understand what there is.
+> I have given sources already to some people expecting them to make bitstreams for say ZTEX boards, but it seems that they failed to understand what there is.
 You may try to accomplish that if you're good enough. Or may forward it to those who you believe are good enough and would like to spend time on this.
 I promised actually long time ago to make it opensource, so I am keeping this promise, but unfortunately to make it usable it should be ported to other
 device interface and I don't have time to do that.
 
-BTW, asic layout some time in the future will be opensourced as well. So this will be likely end-game against any competition here, as when they get to master full-custom layout - it will become opensource stuff Smiley
-</code>
+> BTW, asic layout some time in the future will be opensourced as well. So this will be likely end-game against any competition here, as when they get to master full-custom layout - it will become opensource stuff Smiley
 
-====== Licenses ======
-
-===== FPGA design ====
-**"License - no any restrictions - do whatever you want both commercial and non-commercial"**\\
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2419469#msg2419469]]
+#### FPGA License
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2419469#msg2419469): **"License - no any restrictions - do whatever you want both commercial and non-commercial"**
 
 >>Quote from: fpgaminer on June 09, 2013, 10:41:45 AM
 >>>Quote
@@ -1294,70 +1314,69 @@ source: [[https://bitcointalk.org/index.php?topic=228677.msg2419469#msg2419469]]
 >
 >Well - to make great announcement of bitstream - there's some docs should be written, porting, etc. really not much people can understand, maybe even some license notice if taken so seriously. I don't remember exactly to whom (but can look on skype) - but I gave it I think in Feb 2013 to people who appeared to be skilled in FPGA. and till today no results and no announce. I doubt they really wished to spend effort required :-(
 
-
-====== cgminer ======
+### Software Support
+#### cgminer
 
 [[https://bitcointalk.org/index.php?topic=228677.msg2670442#msg2670442]]
-<code>
-For raspi owners, please try my modification of cgminer:
-https://github.com/legkodymov/cgminer
 
-I compile it with:
-./autogen.sh --enable-bitfury --disable-opencl --without-curses
+> For raspi owners, please try my modification of cgminer: https://github.com/legkodymov/cgminer
+>
+> I compile it with: ./autogen.sh --enable-bitfury --disable-opencl --without-curses
 make
+>
+> It can be executed with similar command: sudo ./cgminer -o stratum+tcp://stratum.bitcoin.cz:3333 -u legkodymov.worker1 -p YeDRuvbg --debug
+>
+> Miner is based on Bitfury's spitest code. Oscillator and SPI freq are hard coded.
 
-It can be executed with similar command:
-sudo ./cgminer -o stratum+tcp://stratum.bitcoin.cz:3333 -u legkodymov.worker1 -p YeDRuvbg --debug
+----
+[Source](https://bitcointalk.org/index.php?topic=242745.msg2915713#msg2915713):
 
-Miner is based on Bitfury's spitest code. Oscillator and SPI freq are hard coded.
-</code>
+> Добавил возможность, изменять интервал опроса чипа, не пересобирая программу - исходники - https://github.com/dimitrus/cgminer.git 
+> Новый параметр ASIC delay в меню Settings, его можно задавать в командной строке и записывать в конфиг.
 
------
+#### Windows/Serial Port Fork
 
-source: [[https://bitcointalk.org/index.php?topic=242745.msg2915713#msg2915713]]
+or at least the beginning: https://bitcointalk.org/index.php?topic=242745.msg2865502#msg2865502
 
->Добавил возможность, изменять интервал опроса чипа, не пересобирая программу - исходники - [[https://github.com/dimitrus/cgminer.git]].
->Новый параметр ASIC delay в меню Settings, его можно задавать в командной строке и записывать в конфиг.
-==== Windows/Serial Port Fork ====
+> Первый запуск.
+> Связка: STM8S003 + Bluetooth HC-05.
+> http://my-files.ru/9xjl.bitfury-serialport.zip
 
-or at least the beginning: [[https://bitcointalk.org/index.php?topic=242745.msg2865502#msg2865502]]
->Первый запуск.
->Связка: STM8S003 + Bluetooth HC-05.
-> [[http://my-files.ru/9xjl.bitfury-serialport.zip]]
 also available here at {{::bitfury-serialport.zip}}
 
-==== More improvements by dimitrus ====
+#### More improvements by dimitrus
 
-source: [[https://bitcointalk.org/index.php?topic=242745.msg3052503#msg3052503]]
-:!: In this github repo: [[https://github.com/dimitrus/cgminer-l.git]] are a lot of changes (supposedly improvements) over the original version by Legkodymov. Later he also released a new version for Metabank (linked below) which is different than that one.
+[Source](https://bitcointalk.org/index.php?topic=242745.msg3052503#msg3052503)
+:!: In [this github repo](https://github.com/dimitrus/cgminer-l.git) are a lot of changes (supposedly improvements) over the original version by Legkodymov. Later he also released a new version for Metabank (linked below) which is different than that one.
 
-==== Legkodymov's Metabank version ====
+#### Legkodymov's Metabank version
 
-Legkodymov announced here ([[https://bitcointalk.org/index.php?topic=242745.msg3045713#msg3045713]]) that he has prepared a new build for Metabank available via their web site: [[http://bitfury.metabank.ru/?p=14]] :
+Legkodymov announced [here](https://bitcointalk.org/index.php?topic=242745.msg3045713#msg3045713) that he has prepared a new build for Metabank available via their web site: http://bitfury.metabank.ru/?p=14
 
-
->Выпущено обновление cgminer [[https://github.com/legkodymov/cgminer]]. Список наиболее важных изменений:
->- Опрос чипов происходит синхронно, один раз за 400000 тактов до смены job’a
->- Ускорена процедура определения чипов
->- Поддержка слотов для майнера (до 32 штук)
->- Немного переработана статистика
->- Устранены HW ошибки, duplicates и т.д.
+> Выпущено обновление cgminer [[https://github.com/legkodymov/cgminer]]. Список наиболее важных изменений:
+> - Опрос чипов происходит синхронно, один раз за 400000 тактов до смены job’a
+> - Ускорена процедура определения чипов
+> - Поддержка слотов для майнера (до 32 штук)
+> - Немного переработана статистика
+> - Устранены HW ошибки, duplicates и т.д.
 >
->Что б собрать обновленный майнер:
->cd /home/pi
->git clone https://github.com/legkodymov/cgminer
->cd cgminer
->./autogen.sh --enable-bitfury --disable-opencl --without-curses
->make
->sudo make install
->sudo reboot
+> Что б собрать обновленный майнер:
+````
+> cd /home/pi
+> git clone https://github.com/legkodymov/cgminer
+> cd cgminer
+> ./autogen.sh --enable-bitfury --disable-opencl --without-curses
+> make
+> sudo make install
+> sudo reboot
+````
 
-### bfgminer
+#### bfgminer
 
 [Source](https://bitcointalk.org/index.php?topic=287590.msg3079501#msg3079501):
 
->Also there is a dev version of bfgminer is the works currently at :-
->https://github.com/luke-jr/bfgminer/tree/littlefury
+> Also there is a dev version of bfgminer is the works currently at :-
+> https://github.com/luke-jr/bfgminer/tree/littlefury
 
 ### Various Sources of information
 
