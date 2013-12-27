@@ -1133,38 +1133,41 @@ source: [[https://bitcointalk.org/index.php?topic=242745.msg3051990#msg3051990]]
 >пока напряжно мерять померяю отпишусь.
 >>Отключи делитель, внешний клок и понизь частоту, попробуй эти варианты перебрать.
 >какраз все ето и пробовал без делителя результаты хуже, а внешний клок отключил.
-====== Later and Finished boards ======
 
-===== Bitfury H-Card =====
+### Later and Finished boards
 
-First reported [[https://bitcointalk.org/index.php?topic=228677.msg2582589#msg2582589|here]]:
-{{ http://i.imgur.com/IWBq5Ct.gif }}
+#### Bitfury H-Card
 
-bottom layer layout: [[https://bitcointalk.org/index.php?topic=250249.msg2679732#msg2679732]]
-{{  http://i.imgur.com/gUMVK0bl.gif }} or large: [[http://i.imgur.com/gUMVK0b.gif]]
+[First reported here](https://bitcointalk.org/index.php?topic=228677.msg2582589#msg2582589):
+![](http://i.imgur.com/IWBq5Ct.gif)
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2819174#msg2819174]]
-{{ http://i.imgur.com/a2fraGbl.gif }} or large: [[http://i.imgur.com/a2fraGb.gif]]
+[Bottom layer layout](https://bitcointalk.org/index.php?topic=250249.msg2679732#msg2679732)
+![](http://i.imgur.com/gUMVK0bl.gif) [Larger version](http://i.imgur.com/gUMVK0b.gif)
 
-----
-
-and a finished one: [[https://bitcointalk.org/index.php?topic=250249.msg2885384#msg2885384]]
-{{ http://i43.tinypic.com/24d24gh.jpg?600 }}
-===== Bitfury/intron H-Card motherboard =====
-
-which should have this "mainboard" as the final variant : [[https://bitcointalk.org/index.php?topic=242745.msg2681499#msg2681499]]
-{{ http://i.imgur.com/H1kXHG4.jpg }}
-
-and schematic: [[https://bitcointalk.org/index.php?topic=250249.msg2681805#msg2681805]]
-{{ http://i.imgur.com/aEDgx1Wl.gif }} or large: [[http://i.imgur.com/aEDgx1W.gif]]
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2819174#msg2819174):
+![](http://i.imgur.com/a2fraGbl.gif) [Larger version]([http://i.imgur.com/a2fraGb.gif)
 
 ----
 
-another revision mentioned here: [[https://bitcointalk.org/index.php?topic=250249.msg2878307#msg2878307]]
-{{ http://i43.tinypic.com/2m6sadi.png }}
-===== H-Card power supply =====
+[A finished one](https://bitcointalk.org/index.php?topic=250249.msg2885384#msg2885384):
+![](http://i43.tinypic.com/24d24gh.jpg?600)
 
-source: [[https://bitcointalk.org/index.php?topic=251966.msg2743975#msg2743975]]
+#### Bitfury/intron H-Card motherboard
+
+which should have [this "mainboard" as the final variant](https://bitcointalk.org/index.php?topic=242745.msg2681499#msg2681499)
+![](http://i.imgur.com/H1kXHG4.jpg)
+
+[Schematic](https://bitcointalk.org/index.php?topic=250249.msg2681805#msg2681805):
+![](http://i.imgur.com/aEDgx1Wl.gif) [Larger picture](http://i.imgur.com/aEDgx1W.gif)
+
+----
+
+another revision mentioned [here](https://bitcointalk.org/index.php?topic=250249.msg2878307#msg2878307):
+![](http://i43.tinypic.com/2m6sadi.png)
+
+#### H-Card power supply
+
+[Source](https://bitcointalk.org/index.php?topic=251966.msg2743975#msg2743975):
 
 >>Quote from: jimrome on July 16, 2013, 08:01:35 PM
 >>Hi Dave,
@@ -1172,73 +1175,76 @@ source: [[https://bitcointalk.org/index.php?topic=251966.msg2743975#msg2743975]]
 >
 >H-board regulator is this part [[http://www.ti.com/product/tps53355|Texas Instruments TPS53355]].  You can use it to OC the chips, but on the H-board 16 chips will max this thing out at .8v or so.
 
+#### Punin's H&M Boards
 
-===== Punin's H&M Boards =====
+[Source](https://bitcointalk.org/index.php?topic=250249.msg2796196#msg2796196):
 
-source: [[https://bitcointalk.org/index.php?topic=250249.msg2796196#msg2796196]]
->- H & M Boards are in production (assembly)
+> - H & M Boards are in production (assembly)
 > EDIT: Just to clarify – this chaining is a new feature that will help us build more competitive products, this has nothing to do with current board functionality.
 
-{{ http://imgur.com/iqptMTo.jpg }}
+![](http://imgur.com/iqptMTo.jpg)
 
-===== c-scape completed board =====
+#### c-scape completed board
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2796663#msg2796663]]
-{{ http://i.imgur.com/NMhgHd9l.jpg }} or large: [[http://i.imgur.com/NMhgHd9.jpg]]
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2796663#msg2796663)
+![](http://i.imgur.com/NMhgHd9l.jpg) [Larger picture](http://i.imgur.com/NMhgHd9.jpg)
 
-[[https://bitcointalk.org/index.php?topic=228677.msg2807302#msg2807302]] : \\
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2807302#msg2807302):
+
 > Power regulator is the APTS050A0X3-SRPHZ module
 
-===== c-scape-based test board =====
+#### c-scape-based test board
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2937364#msg2937364]]
-{{ http://i1289.photobucket.com/albums/b517/LaserHorse/BitfuryAdapter-LH-med_zpsbab373b9.jpg }} or large: [[http://s1289.photobucket.com/user/LaserHorse/media/BitfuryAdapter-LH-med_zpsbab373b9.jpg.html]]
-===== BuzzDave's (Dave) MegaBigPower =====
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2937364#msg2937364):
+![](http://i1289.photobucket.com/albums/b517/LaserHorse/BitfuryAdapter-LH-med_zpsbab373b9.jpg) [Larger picture](http://s1289.photobucket.com/user/LaserHorse/media/BitfuryAdapter-LH-med_zpsbab373b9.jpg.html)
 
-source: [[https://bitcointalk.org/index.php?topic=251966.msg2929994#msg2929994]] \\
+#### BuzzDave's (Dave) MegaBigPower
+
+[Source](https://bitcointalk.org/index.php?topic=251966.msg2929994#msg2929994):
 this is actually the defective board (as it has layers 1 and 4 only and is missing 2 and 3) :
-{{ :bad2layerh.jpg?600 |BuzzDave's bad board}}
+![](:bad2layerh.jpg?600 |BuzzDave's bad board}}
 
-===== Metabank.ru's finished boards =====
+#### Metabank.ru's finished boards
 
-source: [[https://metabank.ru/asic]]
+[Source](https://metabank.ru/asic)
 {{ :asic_board.jpg?600 |metabank }}
 
-===== BuzzDave's boards =====
+#### BuzzDave's boards
 
-source: [[https://bitcointalk.org/index.php?topic=251966.msg3413158#msg3413158]]
+[Source](https://bitcointalk.org/index.php?topic=251966.msg3413158#msg3413158):
 
 Here are the design files...
 
->board and schematics
->[[https://mega.co.nz/#!89gQkSwD!MDH1iXvlsSogk3XUIjjuVDP_EW9drPgCeogcdzwCI7U]]
->gerbers
->[[https://mega.co.nz/#!Yoh1yJoa!NhdcoRqV7qH9TwMq5V15SyC5O4wbv8cByE6ItZLHGc0]]
->stencil
->[[https://mega.co.nz/#!I44VjQAb!YYo9-EVSZiuvPcBu8-wBUAmlGm0DTr0T8nDBGYf9lNY]]
+> board and schematics
+> https://mega.co.nz/#!89gQkSwD!MDH1iXvlsSogk3XUIjjuVDP_EW9drPgCeogcdzwCI7U
+> gerbers
+> https://mega.co.nz/#!Yoh1yJoa!NhdcoRqV7qH9TwMq5V15SyC5O4wbv8cByE6ItZLHGc0
+> stencil
+> https://mega.co.nz/#!I44VjQAb!YYo9-EVSZiuvPcBu8-wBUAmlGm0DTr0T8nDBGYf9lNY
 
->Even though these work for me I'd still recommend you review them before use...I'm not an EE, but it was fairly straightforward to redraw the 8chip board. It was a quick job, so there are extra holes and the component names are not sequential. The nice thing that i added was holes for a standard chip set heatsink (59 mm diag spacing)
+> Even though these work for me I'd still recommend you review them before use...I'm not an EE, but it was fairly straightforward to redraw the 8chip board. It was a quick job, so there are extra holes and the component names are not sequential. The nice thing that i added was holes for a standard chip set heatsink (59 mm diag spacing)
 
-===== kaerf's 8-chip board ====
+#### kaerf's 8-chip board
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg3259455#msg3259455]] - all images at this album: [[http://imgur.com/a/5Ebiw]]
+[Source](https://bitcointalk.org/index.php?topic=228677.msg3259455#msg3259455): - all images at this album: http://imgur.com/a/5Ebiw
 
-{{ http://i.imgur.com/d9HrK8rl.jpg }} or large: [[http://imgur.com/EVl2sx]] \\
-{{ http://i.imgur.com/EVl2sxYl.jpg }} \\
-{{ http://i.imgur.com/jojyeqIl.jpg }}
-====== Public & Open-Source Designs =====
+![](http://i.imgur.com/d9HrK8rl.jpg) [Larger picture](http://imgur.com/EVl2sx)
 
-==== Punin's H-card and M-board ====
+![](http://i.imgur.com/EVl2sxYl.jpg)
+![](http://i.imgur.com/jojyeqIl.jpg)
 
-source: [[https://bitcointalk.org/index.php?topic=250249.msg3325744#msg3325744]]
+#### Public & Open-Source Designs
 
->And last but not least I was given permission to release our M-board and H-card schematics to the public!
->Download in zipped eagle .sch format here:
->[[http://bitfurystrikesback.com/bitfury_m-board-v2.3.sch.zip]] - M-Board v2.3
->[[http://bitfurystrikesback.com/bitfury_h-card-v1.2.sch.zip]] - H-Card v1.2
+##### Punin's H-card and M-board
 
+[Source](https://bitcointalk.org/index.php?topic=250249.msg3325744#msg3325744):
 
-====== Other ======
+> And last but not least I was given permission to release our M-board and H-card schematics to the public!
+> Download in zipped eagle .sch format here:
+> http://bitfurystrikesback.com/bitfury_m-board-v2.3.sch.zip - M-Board v2.3
+> http://bitfurystrikesback.com/bitfury_h-card-v1.2.sch.zip - H-Card v1.2
+
+#### Other
 
 ===== Original FPGA plans etc:
 
