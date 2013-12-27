@@ -1,4 +1,4 @@
-### History of the Bitfury SHA-256 Chip
+## History of the Bitfury SHA-256 Chip
 
 It all started with this thread: [ANN: Bitfury is looking for alpha-testers of first chips! FREE MONEY HERE!](https://bitcointalk.org/index.php?topic=228677.0). 
 
@@ -8,161 +8,110 @@ Some more general details are [here](https://bitcointalk.org/index.php?topic=829
 
 [[punin]] was in the mean time in Taiwan [to deal with the packaging factory and pick up the chips](https://bitcointalk.org/index.php?topic=228677.msg2476268#msg2476268). Blog is located at https://bittiraha.fi/content/matka-alkaa (in Finnish).
 
-#### Hardware Specs
+### Hardware Specs
 
-##### Chip Design Summary
+#### Chip Design Summary
 [Source](https://bitcointalk.org/index.php?topic=140366.msg1509922#msg1509922)
->Die dimensions: 3.8x3.8mm
->Package: QFN48
->Performance: 3.3 GH/s _rated performance_, about 7 GH/s maximum
->Power consumption: 1 W at _rated_ performance @ 0.6 V, 6 W _maximum_ performance @ 1.0 V.
->Thermal characteristics of package: 2 K / W junction-to-pcb and 34 K / W junction-to-ambient.
+> * Die dimensions: 3.8x3.8mm
+> * Package: QFN48
+> * Performance: 3.3 GH/s _rated performance_, about 7 GH/s maximum
+> * Power consumption: 1 W at _rated_ performance @ 0.6 V, 6 W _maximum_ performance @ 1.0 V.
+> * Thermal characteristics of package: 2 K / W junction-to-pcb and 34 K / W junction-to-ambient.
 
-##### Packaging
+#### Packaging
 On the same thread [bitfury](https://bitcointalk.org/index.php?action=profile;u=58469) posted [the first specs](https://bitcointalk.org/index.php?topic=228677.msg2408216#msg2408216):
 
->* QFN48 7x7 mm plastic package.
->* 0.5mm pitch QFN
->* In response to "dimensions of thermal pad? And what material is used (copper?)": ''QFN48 7x7, 0.5P Copper Alloy and Plating''. [Source](https://bitcointalk.org/index.php?topic=228677.msg2748713#msg2748713). File is also available here: 485aj.pdf
+> * QFN48 7x7 mm plastic package.
+* 0.5mm pitch QFN
+* In response to "dimensions of thermal pad? And what material is used (copper?)": ''QFN48 7x7, 0.5P Copper Alloy and Plating''. [Source](https://bitcointalk.org/index.php?topic=228677.msg2748713#msg2748713). File is also available here: 485aj.pdf
 
-##### Pinout
+#### Pinout and Usage
 In the [same message](https://bitcointalk.org/index.php?topic=228677.msg2408216#msg2408216) he said:
 
->* Pad diagram: [https://mega.co.nz/#!SctDlaJY!TMVG_E6gOVI-MMky8BS0hTy_h-AqpBeVfgrKF_d0J7g]. Here is a copy of the file: {{:paddiag.xls}}
->* central pad - ground
->* 35 pads - VDD - on three sides - core voltage - 0.6 .. 0.9 V with high amperage.
->* I/O (required for testing):
->* IOVDD - feed it with 1.8 V
->* IOREF - feed it with 0.9 V for standard signalling (better not take VDD but put resistive divider between GND and IOVDD) and some cap to remove pulsations.
->* INCLK - input clock (in case if internal oscillator not works)
->* INMOSI, INSCK - SPI inputs
->* INMISO - SPI output (to controller)
+> * Pad diagram: [https://mega.co.nz/#!SctDlaJY!TMVG_E6gOVI-MMky8BS0hTy_h-AqpBeVfgrKF_d0J7g]. Here is a copy of the file: {{:paddiag.xls}}
+* central pad - ground
+* 35 pads - VDD - on three sides - core voltage - 0.6 .. 0.9 V with high amperage.
+* I/O (required for testing):
+* IOVDD - feed it with 1.8 V
+* IOREF - feed it with 0.9 V for standard signalling (better not take VDD but put resistive divider between GND and IOVDD) and some cap to remove pulsations.
+* INCLK - input clock (in case if internal oscillator not works)
+* INMOSI, INSCK - SPI inputs
+* INMISO - SPI output (to controller)
 
 then 'bonus' pins for further testing are:
->* OUTCLK, OUTSCK, OUTMOSI, OUTMISO - are for chaining SPI communication to next chip (chaining mode is programmable within chip). OUTMISO should be tied to GND.
+> * OUTCLK, OUTSCK, OUTMOSI, OUTMISO - are for chaining SPI communication to next chip (chaining mode is programmable within chip). OUTMISO should be tied to GND.
 
 and
-
->* CMQ, CMPLUS, CMMINUS - are internal regulator. it is beyond the scope right now as it could be rocket science to make it work using realistic noise... these should be tied to GND.
+> * CMQ, CMPLUS, CMMINUS - are internal regulator. it is beyond the scope right now as it could be rocket science to make it work using realistic noise... these should be tied to GND.
 
 If mounting is dead-bug - don't forget to solder FAT THICK WIRE to center of the chip to dissipate heat! Otherwise you'll prepare "fried chips" food.
 
 ----
 from bitfury's ''paddiag.xls'' file :
-{|
-|-
-| PIN 
-| NAME 
-| ROLE 
-| Usage/Notes
-|-
-|1
-| CMQ 
-| ANALOG 
-| connect to GND 
-|-
-| 2 
-| CMPLUS 
-| ANALOG 
-| connect to GND |
-|-
-| 3 
-| CMMINUS 
-| ANALOG 
-| connect to GND - see [https://bitcointalk.org/index.php?topic=228677.msg2411923;topicseen#msg2411923 this] |-
-| 4 
-| IOVDD 
-| VDD_1_8V 
-| 1.8V |
-|-
-| 5 
-| OUTCLK 
-| OUTPUT 
-| Clock output - float / test point |
-|-
-| 6 
-| OUTSCK 
-| OUTPUT |
-|-
-| 7 
-| OUTMOSI 
-| OUTPUT |
-|-
-| 8 
-| OUTMISO 
-| INPUT |
-|-
-| 9 
-| INMISO 
-| OUTPUT |
-|-
-| 10 
-| INMOSI 
-| INPUT |
-|-
-| 11 
-| INSCK 
-| INPUT |
-|-
-| 12 
-| INCLK 
-| INPUT 
-| tie to GND; [https://bitcointalk.org/index.php?topic=228677.msg2411923#msg2411923 Source]: "INCLK should be tied to power or ground in case if it is not connected to clock generator. Otherwise if it will be floating, especially near half-voltage - it will case spontaneous oscillations. Better to feed it with oscillator, but don't feed less than 100 Mhz, or feed MUCH less than 100 Mhz as you can find bad package resonance."
-|-
-| 13 
-| IOREF 
-| ANALOG INPUT 
-| ideally 1/2 of IOVDD, most often connect to VCC (0.6-0.9V)
-|-
-|}
 
-===== More on IOREF =====
-LOGIC 0 INPUT : INPUT > IOREF + 50 mV (+- 50%)
+|PIN | NAME | ROLE | Usage/Notes|
+|---|---|---|---|
+|1 | CMQ | ANALOG | connect to GND |
+| 2 | CMPLUS | ANALOG | connect to GND |
+| 3 | CMMINUS | ANALOG | connect to GND - see [this](https://bitcointalk.org/index.php?topic=228677.msg2411923;topicseen#msg2411923) |
+| 4 | IOVDD | VDD_1_8V | 1.8V |
+| 5 | OUTCLK | OUTPUT | Clock output - float / test point |
+| 6 | OUTSCK | OUTPUT | |
+| 7 | OUTMOSI | OUTPUT | |
+| 8 | OUTMISO | INPUT | |
+| 9 | INMISO | OUTPUT | |
+| 10 | INMOSI | INPUT | |
+| 11 | INSCK | INPUT | |
+| 12 | INCLK | INPUT | tie to GND; [Source](https://bitcointalk.org/index.php?topic=228677.msg2411923#msg2411923): "INCLK should be tied to power or ground in case if it is not connected to clock generator. Otherwise if it will be floating, especially near half-voltage - it will case spontaneous oscillations. Better to feed it with oscillator, but don't feed less than 100 Mhz, or feed MUCH less than 100 Mhz as you can find bad package resonance."|
+| 13 | IOREF | ANALOG INPUT | ideally 1/2 of IOVDD, most often connect to VCC (0.6-0.9V)|
 
-LOGIC 1 INPUT : INPUT < IOREF + 50 mV (+- 50%)
+##### More on IOREF
+> LOGIC 0 INPUT : INPUT > IOREF + 50 mV (+- 50%)
 
-LOGIC 0 OUTPUT : GND
+> LOGIC 1 INPUT : INPUT < IOREF + 50 mV (+- 50%)
 
-LOGIC 1 OUTPUT : IOVDD
+> LOGIC 0 OUTPUT : GND
 
-===== More on INCLK =====
-[https://bitcointalk.org/index.php?topic=242745.msg3000671#msg3000671]:"Если не используется INCLK/OUTCLK -  через резистор 10-20к садим на землю и в строке инициализации меняем config_reg(6,1); -> config_reg(6,0);
- Вероятней всего будет прирост ~100Mh."
+> LOGIC 1 OUTPUT : IOVDD
 
-===== More on IOVDD =====
-<del>[https://bitcointalk.org/index.php?topic=242745.msg2964335#msg2964335]
->>How many mA does IOVDD take?
->Earlier t309 wrote that it's around 0.25А at 1.8V per chip.
-</del>
 
-source: [https://bitcointalk.org/index.php?topic=228677.msg3081725#msg3081725]
- I just measured it on the S-HASH board by putting a 1Ω resistor on the output of the 1.8V regulator. Voltage drop was 95mV, so current is 95mA for 16 chips, or **about 6mA per chip**.
+##### More on INCLK
+[Source](https://bitcointalk.org/index.php?topic=242745.msg3000671#msg3000671):
+> Если не используется INCLK/OUTCLK -  через резистор 10-20к садим на землю и в строке инициализации меняем config_reg(6,1); -> config_reg(6,0); Вероятней всего будет прирост ~100Mh.
 
-==== Pinout: another (better) Source ====
-Source:[https://bitcointalk.org/index.php?topic=242745.0]
-Image: http://i.imgur.com/Vbc2523.png
- * 1-CMQ цепь токового зеркала для последовательной запитки чипов https://bitcointalk.org/index.php?topic=183368.msg2460608#msg2460608
- * 2-CMPLUS цепь токового зеркала для последовательной запитки чипов https://bitcointalk.org/index.php?topic=183368.msg2460608#msg2460608
- * 3-CMMINUS цепь токового зеркала для последовательной запитки чипов
- * 4-IOVDD питание 1,8v
- * 5-OUTCLK выход напряжения с частотой CLK для синхронизации следующего чипа (на пин-INCLK ведомого чипа)
- * 6-OUTSCK выход последовательного тактового сигналала шины SPI для следующего чипа (на пин-INSCK ведомого чипа)
- * 7-OUTMOSI выход передачи данных шины SPI для следующего чипа (на пин-INMOSI ведомого чипа)
- * 8-OUTMISO вход передачи данных шины SPI от следующего чипа (от пин-INMISO ведомого чипа)
- * 9-INMISO выход передачи данных шины SPI для предидущего чипа (на пин-OUTMISO ведущего чипа, или на контролер интерфейса SPI)
- * 10-INMOSI вход передачи данных шины SPI от предидущего чипа (от пин-OUTMOSI ведущего чипа, или от контролера интерфейса SPI)
- * 11-INCSK вход последовательного тактового сигналала шины SPI от предидущего чипа (на пин-OUTSCK ведущего чипа, или от контролера интерфейса SPI)
- * 12-INCLK вход напряжения с частотой CLK для синхронизации (от пин-OUTCLK ведущего чипа, или от тактового генератора)
- * 13-IOREF опорное напряжение чипа 0.9 V (снимается с делителя напряжения IOVDD, или питается от VDD-0.9 V)
- * 14...48-VDD питание ядра чипа 0.6-0.9 V максимальный ток одного чипа до 6А
- * 49-дно чипа, GND
- *Important* Внимание: размах импульсов входов-выходов шины SPI чипа - напряжением 1,8 вольта (используйте согласователь уровней для контролера интерфейса SPI, обычно размах импульсов контролера 3,3 вольта)
- *Important* Можно-ли питать чип большим напряжением? \\
+##### More on IOVDD
+> <del>[Source](https://bitcointalk.org/index.php?topic=242745.msg2964335#msg2964335):
+  How many mA does IOVDD take?
+  Earlier t309 wrote that it's around 0.25А at 1.8V per chip.
+  </del>
+
+[Source](https://bitcointalk.org/index.php?topic=228677.msg3081725#msg3081725):
+>I just measured it on the S-HASH board by putting a 1Ω resistor on the output of the 1.8V regulator. Voltage drop was 95mV, so current is 95mA for 16 chips, or **about 6mA per chip**.
+
+##### Pinout: another (better) Source
+[Source](https://bitcointalk.org/index.php?topic=242745.0): ![Pinout](http://i.imgur.com/Vbc2523.png)
+
+> * 1-CMQ цепь токового зеркала для последовательной запитки чипов https://bitcointalk.org/index.php?topic=183368.msg2460608#msg2460608
+* 2-CMPLUS цепь токового зеркала для последовательной запитки чипов https://bitcointalk.org/index.php?topic=183368.msg2460608#msg2460608
+* 3-CMMINUS цепь токового зеркала для последовательной запитки чипов
+* 4-IOVDD питание 1,8v
+* 5-OUTCLK выход напряжения с частотой CLK для синхронизации следующего чипа (на пин-INCLK ведомого чипа)
+* 6-OUTSCK выход последовательного тактового сигналала шины SPI для следующего чипа (на пин-INSCK ведомого чипа)
+* 7-OUTMOSI выход передачи данных шины SPI для следующего чипа (на пин-INMOSI ведомого чипа)
+* 8-OUTMISO вход передачи данных шины SPI от следующего чипа (от пин-INMISO ведомого чипа)
+* 9-INMISO выход передачи данных шины SPI для предидущего чипа (на пин-OUTMISO ведущего чипа, или на контролер интерфейса SPI)
+* 10-INMOSI вход передачи данных шины SPI от предидущего чипа (от пин-OUTMOSI ведущего чипа, или от контролера интерфейса SPI)
+* 11-INCSK вход последовательного тактового сигналала шины SPI от предидущего чипа (на пин-OUTSCK ведущего чипа, или от контролера интерфейса SPI)
+* 12-INCLK вход напряжения с частотой CLK для синхронизации (от пин-OUTCLK ведущего чипа, или от тактового генератора)
+* 13-IOREF опорное напряжение чипа 0.9 V (снимается с делителя напряжения IOVDD, или питается от VDD-0.9 V)
+* 14...48-VDD питание ядра чипа 0.6-0.9 V максимальный ток одного чипа до 6А
+* 49-дно чипа, GND
+* **Important** Внимание: размах импульсов входов-выходов шины SPI чипа - напряжением 1,8 вольта (используйте согласователь уровней для контролера интерфейса SPI, обычно размах импульсов контролера 3,3 вольта)
+* **Important** Можно-ли питать чип большим напряжением? \\
 Чип нельзя питать напряжением выше 0,9...0,95v так-как защитные диоды включенные в прямом направлении VDD-GND откроются и зашунтируют питание VDD максимальным током
 
-==== Pins and usage ====
-
-as noted by bitfury [[https://bitcointalk.org/index.php?topic=228677.msg2411923#msg2411923|here]]:
+----
+as noted by bitfury [here](https://bitcointalk.org/index.php?topic=228677.msg2411923#msg2411923):
 
 > Quote from: stripykitteh on June 08, 2013, 02:15:31 PM
 >> Quote from: intron on June 08, 2013, 01:57:59 PM
@@ -203,14 +152,15 @@ as noted by bitfury [[https://bitcointalk.org/index.php?topic=228677.msg2411923#
 
 ----
 
-source: [[https://bitcointalk.org/index.php?topic=183368.msg2498405#msg2498405]] \\
->3. Мораль - по SPI - НУЖНЫ rise/fall относительно резкие. И сделать их оказалось конкретно для распи очень просто - достаточно линии затерминировать на _50_ Ом - в итоге напряжение аккурат 1.8V остается, при этом конечно больше жрет распи - но он уже как полчаса нормально шлет данные на 50 Ом, получаются фронты около 3 ns, плюс форма сигналов очень хорошая.
-==== Clock source ====
+[Source](https://bitcointalk.org/index.php?topic=183368.msg2498405#msg2498405):
+> 3. Мораль - по SPI - НУЖНЫ rise/fall относительно резкие. И сделать их оказалось конкретно для распи очень просто - достаточно линии затерминировать на _50_ Ом - в итоге напряжение аккурат 1.8V остается, при этом конечно больше жрет распи - но он уже как полчаса нормально шлет данные на 50 Ом, получаются фронты около 3 ns, плюс форма сигналов очень хорошая.
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2413092#msg2413092]]:
->>Quote from: intron on June 08, 2013, 03:21:06 PM
->>>Quote from: bitfury on June 08, 2013, 02:56:04 PM
->>>1. INCLK should be tied to power or ground in case if it is not connected to clock generator. Otherwise if it will be floating, especially near half-voltage - it will case spontaneous oscillations.
+##### Clock source
+
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2413092#msg2413092):
+> Quote from: intron on June 08, 2013, 03:21:06 PM
+>> Quote from: bitfury on June 08, 2013, 02:56:04 PM
+>>> 1. INCLK should be tied to power or ground in case if it is not connected to clock generator. Otherwise if it will be floating, especially near half-voltage - it will case spontaneous oscillations.
 >>>   Better to feed it with oscillator, but don't feed less than 100 Mhz, or feed MUCH less than 100 Mhz as you can find bad package resonance.
 >>>
 >>There is no PLL on board? Feeding many chips with
@@ -219,34 +169,35 @@ source: [[https://bitcointalk.org/index.php?topic=228677.msg2413092#msg2413092]]
 >>
 >>intron
 >
->
->There's no PLL on board. There's two kinds of self-running internal oscillators based on programmable delays, but these may fail or give bad performance. It is quite sensitive things. So for testing I left INCLK pin.
+
+> There's no PLL on board. There's two kinds of self-running internal oscillators based on programmable delays, but these may fail or give bad performance. It is quite sensitive things. So for testing I left INCLK pin.
 >Likely it should not be used (INCLK). But OUTCLK likely will be used to test internal oscillator frequency, whether it changes too much or have artifacts.
->
->Putting 500 Mhz isn't big deal if you have good impedance matching. Same is for output. But to chain high speed clock - you have to setup carefully voltage at IOREF pin (even without chain!) so you get duty cycle captured correctly.
->Parameters is what I am currently worried.  100 Mhz is even easier. Just have in mind that at such frequencies on short lines on PCB you work likely in LC-mode of transmission line with all of the consequences, maybe even RC-line, depending on its length!
->
->Also don't forget about level shifters - i/O is 1.8 V not 3.3 V (!!!).
+
+> Putting 500 Mhz isn't big deal if you have good impedance matching. Same is for output. But to chain high speed clock - you have to setup carefully voltage at IOREF pin (even without chain!) so you get duty cycle captured correctly.
+> Parameters is what I am currently worried.  100 Mhz is even easier. Just have in mind that at such frequencies on short lines on PCB you work likely in LC-mode of transmission line with all of the consequences, maybe even RC-line, depending on its length!
+
+> Also don't forget about level shifters - i/O is 1.8 V not 3.3 V (!!!).
+
+----
+[Source](https://bitcointalk.org/index.php?topic=250249.msg2666843#msg2666843)"
+
+>  
+>> Quote from: Anduck on July 06, 2013, 08:24:20 AM
+>> I am also interested in the overclocking of the board. When I get the board I ordered, I might try some slight overclocking with fans and heatsinks. Proper guide would be awesome so nothing breaks.
+
+> The internal oscillator has a frequency that's voltage dependent. So, increasing the core voltage is all you have to do to make the chips run faster. At least, that's the theory. In practice, the board is powered by an integrated regulator with 30A capacity, and fixed voltage by SMT chip resistor. If you increase resistor, voltage goes up, but so does the current, and you'll risk overloading the regulator. You need to carefully monitor the current. 
+
+> The 2.7GH/sec result I got with a single ASIC test board required 2.5A, and 0.835V. If you were to attempt that on the whole board, the total current of 40A would exceed the capabilities of the regulator. 
 
 ----
 
-source: [[https://bitcointalk.org/index.php?topic=250249.msg2666843#msg2666843]]
->>Quote from: Anduck on July 06, 2013, 08:24:20 AM
->>I am also interested in the overclocking of the board. When I get the board I ordered, I might try some slight overclocking with fans and heatsinks. Proper guide would be awesome so nothing breaks.
->
->The internal oscillator has a frequency that's voltage dependent. So, increasing the core voltage is all you have to do to make the chips run faster. At least, that's the theory. In practice, the board is powered by an integrated regulator with 30A capacity, and fixed voltage by SMT chip resistor. If you increase resistor, voltage goes up, but so does the current, and you'll risk overloading the regulator. You need to carefully monitor the current. 
->
->The 2.7GH/sec result I got with a single ASIC test board required 2.5A, and 0.835V. If you were to attempt that on the whole board, the total current of 40A would exceed the capabilities of the regulator. 
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2659961#msg2659961):
+> 230 MHz and 0.84 V requires quite aggressive cooling. The (small) test board had a small heatsink soldered on the bottom (originally for D2PAK), and a small fan aimed at it. Board temperature was about 50 deg C.
 
-----
+##### Clock Speed
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2659961#msg2659961]]
->230 MHz and 0.84 V requires quite aggressive cooling. The (small) test board had a small heatsink soldered on the bottom (originally for D2PAK), and a small fan aimed at it. Board temperature was about 50 deg C.
-
-==== Clock Speed ====
-
-source: [[https://bitcointalk.org/index.php?topic=242745.msg2848548#msg2848548]]
->VCC: 0.87V
+[Source](https://bitcointalk.org/index.php?topic=242745.msg2848548#msg2848548):
+> VCC: 0.87V
 > 50bit 3.7GHs
 > 52bit 3.7GHs
 > 53bit 3.8GHs
@@ -260,7 +211,7 @@ source: [[https://bitcointalk.org/index.php?topic=242745.msg2848548#msg2848548]]
 > 53 = 4.8 GHS  
 
 Also - clock speed is "thermometer" code - below are 56, 55, 54, 53, 52, 51, 50, 49 and 48 bits:
-<code>
+````
 unsigned char osc6[8] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00 };   // 56
 unsigned char osc6[8] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x7F, 0x00 };   // 55
 unsigned char osc6[8] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x3F, 0x00 };   // 54
@@ -270,48 +221,54 @@ unsigned char osc6[8] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x07, 0x00 };   //
 unsigned char osc6[8] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x03, 0x00 };   // 50
 unsigned char osc6[8] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x01, 0x00 };   // 49
 unsigned char osc6[8] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00 };   // 48
-</code>
+````
 //Note that number of bits goes from LSB to MSB//.
 
 Also - frequency is extremely voltage dependent: [[https://bitcointalk.org/index.php?topic=242745.msg3002997#msg3002997]]
 > using 55-bit clock:
-> { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x7F, 0x00 };
-{{ http://i.imgur.com/V4EteJgl.png }} or large: [[http://i.imgur.com/V4EteJg.png]]
+ { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x7F, 0x00 };
 
-=== Maximum Frequency ===
+![](http://i.imgur.com/V4EteJg.png)
 
-[[https://bitcointalk.org/index.php?topic=242745.msg3013397#msg3013397]]
->Maximum frequency below the chip should be stable is ~270 MHz ;
->Frequency depends also a lot on the power supply - if it fluctuates by more than 10mV the number of errors will go change too.
+##### Maximum Frequency
 
-=== Measuring Chip Frequency via software approximation ===
+[Source](https://bitcointalk.org/index.php?topic=242745.msg3013397#msg3013397):
+> Maximum frequency below the chip should be stable is ~270 MHz ;
+Frequency depends also a lot on the power supply - if it fluctuates by more than 10mV the number of errors will go change too.
 
-[[https://bitcointalk.org/index.php?topic=242745.msg3253280#msg3253280]] (google-translated)
->>Quote from: zulunation on September 27, 2013, 08:08:02 PM
->>Do you have a oscilloscope? It would be interesting what's the frequency.
->You don't need a scope - look at where ENABLE_BITFURY_SHOR_STAT and ENABLE_BITFURY_LONG_STAT are:
-> -                       snprintf(stat_lines[dev->slot] + len, 256 - len, "%.1f-%3.0f ", ghash, dev->mhz);
-> +                       snprintf(stat_lines[dev->slot] + len, 256 - len, "%.1f GH/s @ %3.0f MHz ", ghash, dev->mhz);
+###### Measuring Chip Frequency via software approximation
+
+[Source](https://bitcointalk.org/index.php?topic=242745.msg3253280#msg3253280): (google-translated)
+>  
+>> Quote from: zulunation on September 27, 2013, 08:08:02 PM
+>> Do you have a oscilloscope? It would be interesting what's the frequency.
+> You don't need a scope - look at where ENABLE_BITFURY_SHOR_STAT and ENABLE_BITFURY_LONG_STAT are:
+> ````
+snprintf(stat_lines[dev->slot] + len, 256 - len, "%.1f-%3.0f ", ghash, dev->mhz);
+snprintf(stat_lines[dev->slot] + len, 256 - len, "%.1f GH/s @ %3.0f MHz ", ghash, dev->mhz);
+````
 >
 >then you'll need to turn them on in bitfury-config.h and that's all - you get (approximate) frequency
 (and 2 messages later)
 >And that's why it is "approximate", but I can still calculate the hash rate very accurately:
 >I got 210MHz * 756 (cores) / 65 (steps per hash) = 2442MH/s
 
-==== Thermal characteristics ====
+#### Thermal characteristics
 
-source: [[https://bitcointalk.org/index.php?topic=250249.msg3261390#msg3261390]]
->Package thermal resistance Tj-Tpad is 2°K/W. Chips have been tested to run at extreme temperatures. One user used a soldering iron to heat the chip to the point it desoldered. Hashing stopped only when chip started floating on solder and short-circuited.
+[Source](https://bitcointalk.org/index.php?topic=250249.msg3261390#msg3261390):
+> Package thermal resistance Tj-Tpad is 2°K/W. Chips have been tested to run at extreme temperatures. One user used a soldering iron to heat the chip to the point it desoldered. Hashing stopped only when chip started floating on solder and short-circuited.
 
-=== Thermal observations ===
-source: [[https://bitcointalk.org/index.php?topic=183368.msg3281974#msg3281974]]
+##### Thermal observations
+[Source](https://bitcointalk.org/index.php?topic=183368.msg3281974#msg3281974):
 
-{{ http://i.imgur.com/Kg7Z0zM.png }}
-That image is from Metabank's board (which has green mask on the back where the heatsink is mounted, so not a perfect solution from a thermal conductivity point)
-==== Voltage Limits ====
+![IR image](http://i.imgur.com/Kg7Z0zM.png)
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2417990#msg2417990]]
+This image is from Metabank's board (which has green mask on the back where the heatsink is mounted, so not a perfect solution from a thermal conductivity point)
 
+##### Voltage Limits
+
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2417990#msg2417990):
+>  
 >>Quote from: intron on June 09, 2013, 07:38:04 AM
 >>>Quote from: bitfury on June 08, 2013, 05:35:58 PM
 >>>
@@ -332,8 +289,8 @@ source: [[https://bitcointalk.org/index.php?topic=228677.msg2417990#msg2417990]]
 
 ----
 
-source: [[https://bitcointalk.org/index.php?topic=242745.msg3016345#msg3016345]]
-
+[Source](https://bitcointalk.org/index.php?topic=242745.msg3016345#msg3016345):
+>  
 >>так вот в чем секрет ))) 0.955в 3гигагеша
 >>а где максимум при каких напряжениях чип себя нормально чуствует ну 1в я еще попробую а дальше страшно )))
 >
@@ -344,110 +301,132 @@ source: [[https://bitcointalk.org/index.php?topic=242745.msg3016345#msg3016345]]
 >Из ньюансов - 1.5 nm (по памяти) толщина оксида - т.е. до 1.5 V должен жить...
 
 roughly translated:
+
 > 1.0-1.1 is normal "operating" voltage from foundry's point of view
+
 > Going further - there is just more heat. Leglodymov managed to get the chip so hot that it unsoldered itself, and from what I understood the chip survived. For example - 1.4V will not kill the chip, but heat would be significantly more. Of course it will work aster.
+
 > As for nuances - 1.5nM (running on memory) is oxidation thickness - in other words it should survive 1.5V.
 
-==== Optimal Voltage ====
-by Legkodymov : [[https://bitcointalk.org/index.php?topic=242745.msg3024993#msg3024993]]
+##### Optimal Voltage
+[by Legkodymov](https://bitcointalk.org/index.php?topic=242745.msg3024993#msg3024993):
 
->There are approximately 3 stable working frequencies - 53, 54 and 55 bits. Approximate voltages:
->55 bit - <0.8 В
->54 bit - 0.86-0.88
->53 bit - > 0.9 В
-==== Further details by c-scape ====
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2953143#msg2953143]]
+> There are approximately 3 stable working frequencies - 53, 54 and 55 bits. Approximate voltages:
+> * 55 bit - <0.8 В
+> * 54 bit - 0.86-0.88
+> * 53 bit - > 0.9 В
+
+##### Further details by c-scape
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2953143#msg2953143):
+>  
 >>Quote from: Tyger on August 17, 2013, 07:25:34 PM
->>I have 3 questions:
->>The level shifter in the original schematic works just fine==> the one bitfury posted?
->>To be safe core power was applied first, then IOVDD.==> is this needed or?
->>VDD => lets's forget the IOREF line. ==> so connect the VDD to the IOREF?
->On the Bi*Fury USB miner we have a level shifter made from a 330/390 Ohm divider. That works fine.
->I've run several chips with IOVDD = 1.8V, and Vcore = 0, sometimes due to mistakes, sometimes on purpose. Nothing bad has happened. Chip doesn't get warm, and still works.
->IOREF = VDD works great.
-==== Internal Inductance and Capacitance ====
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2413426#msg2413426]]
+>> I have 3 questions:
 
->>Quote from: MrTeal on June 08, 2013, 05:52:36 PM
->>I'm putting together a PCB for testing, but I'll have to see whether it's reasonable to get it fabbed and shipped to me at a reasonable cost by Thursday. What is the max SPI speed supported by the chip?
->
->Well - with PCB take care of capacitor impedance. I doubt that thick 2-layer PCB will work better than capacitors you put there. I'll give you model:
->
->1) Internal capacitance is about 50 nF
->2) wirebond single VDD wire is about 1.5 - 1.8 nH
->3) wirebond to GND is about 0.04 nH
->
->total VDD+GND wirebond inductance is about 0.08 nH
->resonant frequency of this internal LC-tank is about 70 Mhz.
->
->Make at least ESL (serial inductance) to capacitors to about the same - of 0.08 nH
->If you have 0402 and place it really well - it would have about 0.4 nH inductance - so put at least 5 of them there. But depends on your capacitors actually, they're a bit different.
->Then if your power supply is far away (lab power supply) - I would put somewhere there 1 or 2 tantal caps and maybe some 0805 caps. But to calculate actual numbers - err - should do math - for frequencies up to say 100 Mhz here lumped circuit and it is pretty straightforward to calculate by hand using complex amplitudes... not slept too long, unfortunately will not do now :-)
->The overall idea of power supply is to get |Z|(w) adequate low value, and rather flat without increasing peaks at specific frequencies that will be excited when chip average consumption changes a bit cycle to cycle (this is what I would like actually to see - how power consumption spectrum looks like). Also beware of parasitic resonances when different caps are placed (C - L - C) - that's why I offered such analysis.
->
->Inside chip there's largest power consumption spike is 200-300 ps current risetime with target of about 8 amps, while average consumption is about 4 Amps for 0.8 V. It's pretty tought. As the more ripple on internal VDD ==> less clock you'll have or at low voltages flip-flops can loss data.
+>> The level shifter in the original schematic works just fine==> the one bitfury posted?
 
-==== SPI 1.8V Level-shifters ====
+>> To be safe core power was applied first, then IOVDD.==> is this needed or?
+
+>> VDD => lets's forget the IOREF line. ==> so connect the VDD to the IOREF?
+
+> On the Bi*Fury USB miner we have a level shifter made from a 330/390 Ohm divider. That works fine.
+
+> I've run several chips with IOVDD = 1.8V, and Vcore = 0, sometimes due to mistakes, sometimes on purpose. Nothing bad has happened. Chip doesn't get warm, and still works.
+
+> IOREF = VDD works great.
+
+##### Internal Inductance and Capacitance ====
+
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2413426#msg2413426):
+
+>> Quote from: MrTeal on June 08, 2013, 05:52:36 PM
+
+>> I'm putting together a PCB for testing, but I'll have to see whether it's reasonable to get it fabbed and shipped to me at a reasonable cost by Thursday. What is the max SPI speed supported by the chip?
+>  
+> Well - with PCB take care of capacitor impedance. I doubt that thick 2-layer PCB will work better than capacitors you put there. I'll give you model:
+>
+> 1) Internal capacitance is about 50 nF
+
+> 2) wirebond single VDD wire is about 1.5 - 1.8 nH
+
+> 3) wirebond to GND is about 0.04 nH
+>
+> total VDD+GND wirebond inductance is about 0.08 nH
+
+> resonant frequency of this internal LC-tank is about 70 Mhz.
+>
+> Make at least ESL (serial inductance) to capacitors to about the same - of 0.08 nH
+
+> If you have 0402 and place it really well - it would have about 0.4 nH inductance - so put at least 5 of them there. But depends on your capacitors actually, they're a bit different.
+> Then if your power supply is far away (lab power supply) - I would put somewhere there 1 or 2 tantal caps and maybe some 0805 caps. But to calculate actual numbers - err - should do math - for frequencies up to say 100 Mhz here lumped circuit and it is pretty straightforward to calculate by hand using complex amplitudes... not slept too long, unfortunately will not do now :-)
+> The overall idea of power supply is to get |Z|(w) adequate low value, and rather flat without increasing peaks at specific frequencies that will be excited when chip average consumption changes a bit cycle to cycle (this is what I would like actually to see - how power consumption spectrum looks like). Also beware of parasitic resonances when different caps are placed (C - L - C) - that's why I offered such analysis.
+>
+> Inside chip there's largest power consumption spike is 200-300 ps current risetime with target of about 8 amps, while average consumption is about 4 Amps for 0.8 V. It's pretty tought. As the more ripple on internal VDD ==> less clock you'll have or at low voltages flip-flops can loss data.
+
+##### SPI 1.8V Level-shifters ====
 
 The BitFury chip uses 1.8V levels on the SPI bus, so any interface chip working at different levels (e.g. 3.3V) needs a "level shifter".
 
-Initial ideas were to use zener diodes as shown here: [[https://bitcointalk.org/index.php?topic=228677.msg2522441#msg2522441]]
-{{ http://i.imgur.com/A1SaAz3l.gif }}
+Initial ideas were to use zener diodes as shown [here](https://bitcointalk.org/index.php?topic=228677.msg2522441#msg2522441):
+![zener](http://i.imgur.com/A1SaAz3l.gif)
 
 There was also a discussion about that schematic, and it was concluded that just a simple resistor-divider is sufficient. 
 
 BitFury's chip uses a voltage comparator (Vref) and any voltage below that is logical "0" and above that is logical "1". The Raspberry Pi controller has been reported to be also 1.8V-tolerant and any level over 0.8V would be considered a "1".
 
-Later bitfury [[https://bitcointalk.org/index.php?topic=228677.msg2528476#msg2528476|was spotted]] referring to ''BC817-40'' for level-shifting.
+Later bitfury [was spotted]([https://bitcointalk.org/index.php?topic=228677.msg2528476#msg2528476) referring to ''BC817-40'' for level-shifting.
 
 At some point it was suggested that a transistor-based shifter like this could be used:
-{{ http://i.imgur.com/cKtCgjhl.png }}
+![](http://i.imgur.com/cKtCgjhl.png).
 
-Eventually the above idea was refined a bit and the transistor was replaced with a MOS one and zeners replaced with resistors as show here: [[https://bitcointalk.org/index.php?topic=242745.msg3197143#msg3197143]]
-{{ http://i.imgur.com/prgMIbrl.jpg }}
+Eventually the above idea was refined a bit and the transistor was replaced with a MOS one and zeners replaced with resistors as show [here](https://bitcointalk.org/index.php?topic=242745.msg3197143#msg3197143):
+![](http://i.imgur.com/prgMIbrl.jpg)
 
 It appears that the above schematic (with minor variations) is what most designs ended up using.
 
-==== Sample Schematic (not yet working) ====
+#### Sample Schematic (not yet working)
 
-Source: [[https://bitcointalk.org/index.php?topic=242745.msg2575776#msg2575776]]
+[Source](https://bitcointalk.org/index.php?topic=242745.msg2575776#msg2575776):
 
-{{ http://s1.ipicture.ru/uploads/20130625/2IJWpCOv.png?800 | Schematic by ErMark}}
+Schematic by ErMark
+
+![](http://s1.ipicture.ru/uploads/20130625/2IJWpCOv.png)
 
 This schematic later appears to have been used by MaRSe (btc101.ru) for his USB device. It should be noted that noone (including Con Colivas - cgminer's author) couldn't figure out how to get this wiring to work. The main issue is that there is no (known) way to drive the MOSI (data out) signal independently, which is required for sending out the RESET sequence.
-====== Communication Protocol ======
 
-Source: [[https://bitcointalk.org/index.php?topic=228677.msg2411738#msg2411738]]
+### Communication Protocol
 
->Let me explain protocol.
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2411738#msg2411738)
+
+> Let me explain protocol.
 >
->It is not realtime - so you just prepare bulk buffer, then you execute transmit-receive operation, store buffer and then parse it.
->So you can use 32-bit SPI while data could be aligned differently within frames.
+> It is not realtime - so you just prepare bulk buffer, then you execute transmit-receive operation, store buffer and then parse it.
+> So you can use 32-bit SPI while data could be aligned differently within frames.
 >
-><del>SPI RESET sequence - rise MOSI and toggle SCK</del> - that is treated as reset command and by default turns on chain of chips (i.e. all inputs are put to outputs OUT - chip is chaining)
+> <del>SPI RESET sequence - rise MOSI and toggle SCK</del> - that is treated as reset command and by default turns on chain of chips (i.e. all inputs are put to outputs OUT - chip is chaining)
 >
->Then - instructions for chaining accepted on bit-level
+> Then - instructions for chaining accepted on bit-level
 >
->0 - is NOP - no instruction and ignored
->100 - is 'break' chain - it is first broadcasted through whole chain and then - on final clock cycle chain is broken.
->101 - establish asynchronous chain to next chip - all of SPI fill be forwarded to next chip in chain
->110 - establish synchronous chain to next chip - the same as asynchronous but with additional registers for data - bits will be delayed by 2 in output! so give nop padding to frame of long chains
->111 - DATA instruction
->data instruction contains 1 byte that that has length in 32-bit words
->and 16-bit address
+> 0 - is NOP - no instruction and ignored
+> 100 - is 'break' chain - it is first broadcasted through whole chain and then - on final clock cycle chain is broken.
+> 101 - establish asynchronous chain to next chip - all of SPI fill be forwarded to next chip in chain
+> 110 - establish synchronous chain to next chip - the same as asynchronous but with additional registers for data - bits will be delayed by 2 in output! so give nop padding to frame of long chains
+> 111 - DATA instruction:
+> data instruction contains 1 byte that that has length in 32-bit words
+> and 16-bit address
 >
->So within single frame you can access any chip and execute data transmissions by to its internal addresses and get results using emit_data function.
+> So within single frame you can access any chip and execute data transmissions by to its internal addresses and get results using emit_data function.
 >For testing purpose - just break chain after reset and start talking to FIRST chip ALWAYS. SPI RESET is synchronization routine, because chip doesn't have global asynchronous reset and starts in undefined state. It is pretty safe however just to send many zeroes to overflow counters inside and get "in sync" with single chip.
 >
->----- Communication code snippet ----
+>````
+----- Communication code snippet ----
 <code c sample.c>
 unsigned char spibuf[16384]; /* Spi output buffer */
 unsigned spibufsz = 0; /* Spi buffer size in bytes */
 unsigned nonemit_value[128];
 unsigned nonemit_pos[128];
 unsigned nonemit_last = 0;
-
+>
 void emit_buf_reverse(const char *str, unsigned sz)
 {
         unsigned i;
@@ -467,7 +446,7 @@ void emit_buf(const char *str, unsigned sz)
         memcpy(&spibuf[spibufsz], str, sz); spibufsz += sz;
         printf("Adding %u to %u bytes\n", sz, spibufsz);
 }
-
+>
 void emit_break(void) { emit_buf("\x4", 1); }
 void emit_fsync(void) { emit_buf("\x6", 1); }
 void emit_fasync(void) { emit_buf("\x5", 1); }
@@ -482,15 +461,15 @@ void emit_data(uint16_t addr, const char *buf, uint16_t len)
         emit_buf_reverse(buf, len*4);
 }
 -------------------------------
-</code>
+````
 >
 >that's it ? Is it clear to everyone ?
 >
 
-==== Registers and more details ====
-[[https://bitcointalk.org/index.php?topic=242745.msg3036342#msg3036342]]:
+#### Registers and more details
+[Source](https://bitcointalk.org/index.php?topic=242745.msg3036342#msg3036342):
 
-<code>
+````
  Configuration registers 7,8,9,10,11 - enable scan chain. All should be UNPROGRAMMED. Or instead of calculating useful jobs chip will activate scanchain
    of selected columns 
  Configuration register 6 - if UNPROGRAMMED - output to OUTCLK is taken straight from INCLK pin, if PROGRAMMED - output to OUTCLK is
@@ -533,9 +512,9 @@ x111 xxxa aaab bbbb - CONFIGURATION REGISTER MAGIC NUMBER PROGRAMMING.
 Slow versus fast oscillators. Slow oscillator should give more uniform delay and less jitter for lower frequencies, while fast oscillator
 could give higher frequencies, but less stability at lower frequencies (could means that it behaves instable in SPICE, how it will in reality
 though is not known, while slow is definitely works under all conditions).
-</code>
+````
 
-Later bitfury added that: [[https://bitcointalk.org/index.php?topic=242745.msg3009874#msg3009874]]
+Later [bitfury added](https://bitcointalk.org/index.php?topic=242745.msg3009874#msg3009874) that:
 
 >> bitfury tell us pleas how to turn on the first/fast oscillator?
 > Unfortunately you can't. There is an error in the crystal design.
@@ -547,10 +526,12 @@ Later bitfury added that: [[https://bitcointalk.org/index.php?topic=242745.msg30
 
 ----
 
-[[https://bitcointalk.org/index.php?topic=242745.msg3036094#msg3036094]]
+[Source](https://bitcointalk.org/index.php?topic=242745.msg3036094#msg3036094):
+
 >> How do I switch the clock generator from internal to external?
 > You can supply external clock on PIN-12. All settings are in libbitfury.c
 <code c libbitfury.c>
+````
 	spi_clear_buf(); /* Обнуление счетчика буфера*/
 	spi_emit_break(); /* Сброс, заставляет чип слушать*/
 	spi_emit_fasync(chip_n); /* Выбор чипа*/
@@ -561,10 +542,11 @@ Later bitfury added that: [[https://bitcointalk.org/index.php?topic=242745.msg30
 	config_reg(1,0); 
         config_reg(2,0); 
         config_reg(3,0); /* 0=Включает делитель частоты на 2, 1=Отключает делитель частоты*/
-</code>
-==== Chip Reset Sequence =====
+````
 
-confirmed [[https://bitcointalk.org/index.php?topic=228677.msg2817807#msg2817807]]
+#### Chip Reset Sequence
+
+[Confirmed](https://bitcointalk.org/index.php?topic=228677.msg2817807#msg2817807)
 
 By looking at bitfury's source code it seems to be happening in a different order:
 (presumes GPIO_10/MOSI is 0), (presumes GPIO_11/SCK is 0), SCK=1, (repeat 16 times  MOSI=1, MOSI=0), SCK=0
@@ -574,22 +556,25 @@ or instead of :
 do:
 "SPI RESET sequence - rise SCK and toggle MOSI"
 
-==== Endianness ====
+#### Endianness
 
-source/reminder: [[https://bitcointalk.org/index.php?topic=242745.msg3123297#msg3123297]]
+[Source/reminder](ttps://bitcointalk.org/index.php?topic=242745.msg3123297#msg3123297):
+
 >Aetheros is MIPS, which is big endian, Raspberry Pi is little endian ARM.
 
-[[https://bitcointalk.org/index.php?topic=228677.msg2817807#msg2817807]]:
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2817807#msg2817807):
+
 >>4. Does the piece of code below work because the 0x04 value (100 command) is preceded by a bunch of zeros? (e.g. chip is reading 000 and treating it as NOP)?
 > Yes
-==== SPI Protocol ====
 
-2. SPI configuration - The chip reads the MOSI data on SCK rising.
+#### SPI Protocol
+
+SPI configuration - The chip reads the MOSI data on SCK rising.
 Judging from the code above it seems that while SCK is high MOSI shouldn't change, so it is likely on the rising edge.
 
 The chip outputs date on the MISO on SCK falling edge.
 
-<code>
+````
 SCK :   __________/----\_____________/------\____...
                   ^ scan MOSI        ^ scan MOSI
                   |    |             |      |
@@ -598,40 +583,44 @@ MOSI:  <out bit 7>=======<out bit 6>===========<out bit 5>
                        |                    |
                        V data out on MISO   V data out on MISO
 MISO:  ================x<bit 7>=============x<bit 6>x=====
-</code>
+````
 
 MSBit is first LSBit is last.
 
-=== SPI Speed ===
+#### SPI Speed
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2817807#msg2817807]]
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2817807#msg2817807):
+
 >AFAIK there's no minimum speed.  Not sure what max speed is (I think it's > 10 MHz). I'm running the SPI bus at 500 kHz, which is about the fastest you can get for 16 chips in ''fasync'' mode.
 
-=== Queue depth ===
+#### Queue depth
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2831378#msg2831378]]
->>How deep is this queue and what happens if you add one more unit of work than the queue can hold ?
->>Does it abort the current job ?
->The queue is 2 deep. One job it is currently working on, and one job scheduled for later. Every time you poll the chip to see if the job is finished, you supply the next job at the same time (it's in the same SPI transfer), so typically the next job will be sent a few times. I've never seen any evidence of aborted jobs. I figure it just overwrites the next job. 
+[Source]https://bitcointalk.org/index.php?topic=228677.msg2831378#msg2831378):
+
+>> How deep is this queue and what happens if you add one more unit of work than the queue can hold ?
+>> Does it abort the current job ?
+> The queue is 2 deep. One job it is currently working on, and one job scheduled for later. Every time you poll the chip to see if the job is finished, you supply the next job at the same time (it's in the same SPI transfer), so typically the next job will be sent a few times. I've never seen any evidence of aborted jobs. I figure it just overwrites the next job. 
 
 ----
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2831378#msg2831378]]:
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2831378#msg2831378):
+
 >>How deep is this queue and what happens if you add one more unit of work than the queue can hold ?
 Does it abort the current job ?
->The queue is 2 deep. One job it is currently working on, and one job scheduled for later. Every time you poll the chip to see if the job is finished, you supply the next job at the same time (it's in the same SPI transfer), so typically the next job will be sent a few times. I've never seen any evidence of aborted jobs. I figure it just overwrites the next job. 
+> The queue is 2 deep. One job it is currently working on, and one job scheduled for later. Every time you poll the chip to see if the job is finished, you supply the next job at the same time (it's in the same SPI transfer), so typically the next job will be sent a few times. I've never seen any evidence of aborted jobs. I figure it just overwrites the next job. 
 
-=== Abort Work ===
+#### Abort Work
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2831022#msg2831022]]
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2831022#msg2831022):
 
->>Haven't had time to get a board up yet, but if it behaves like bitfury's fpga, just try sending it the new work prior to completion.  So to test, find a work that does not find a solution and one that returns a nonce very quickly.   Send the one that does not find a nonce, then immediately send the one that does.  Then measure the return time for the expected nonce.
+>> Haven't had time to get a board up yet, but if it behaves like bitfury's fpga, just try sending it the new work prior to completion.  So to test, find a work that does not find a solution and one that returns a nonce very quickly.   Send the one that does not find a nonce, then immediately send the one that does.  Then measure the return time for the expected nonce.
 
->I don't know how the FPGA works, but on the ASIC, the chip is working on job #0, while you send data for job #1. As soon as it finishes job #0, it automatically switches to job #1. Sending job #1 does not abort job #0, so if there's a way to abort #0, it must use a different mechanism.
+> I don't know how the FPGA works, but on the ASIC, the chip is working on job #0, while you send data for job #1. As soon as it finishes job #0, it automatically switches to job #1. Sending job #1 does not abort job #0, so if there's a way to abort #0, it must use a different mechanism.
 
 ----
 
-source: [[https://bitcointalk.org/index.php?topic=228677.msg2830720#msg2830720]]
+[Source](https://bitcointalk.org/index.php?topic=228677.msg2830720#msg2830720):
+
 >>Quote from: KNK on Today at 06:28:18 AM
 >>Not sure if it resets just the SPI or the entire chip, but you may try using "SPI RESET sequence - rise MOSI and toggle SCK" [[https://bitcointalk.org/index.php?topic=228677.msg2411738#msg2411738]]
 >That just resets the SPI chain. I use that every time before I poll the chips to see if they are ready.
@@ -640,11 +629,11 @@ source: [[https://bitcointalk.org/index.php?topic=228677.msg2830720#msg2830720]]
 >>Is there a doc (or list) of the data commands or the only place is the source?
 >All I know about is bitfury's postings in this thread and his source code, and neither mentions an 'abort job' feature.
 
-==== Configuration Registers ====
+#### Configuration Registers
 
-source: [[https://bitcointalk.org/index.php?topic=242745.msg3000746#msg3000746]] (which supposedly quotes another source)
+[Source](https://bitcointalk.org/index.php?topic=242745.msg3000746#msg3000746): (which supposedly quotes another source)
 
-<code>
+````
  Configuration registers 7,8,9,10,11 - enable scan chain. All should be UNPROGRAMMED. Or instead of calculating useful jobs chip will activate scanchain
    of selected columns 
  Configuration register 6 - if UNPROGRAMMED - output to OUTCLK is taken straight from INCLK pin, if PROGRAMMED - output to OUTCLK is
@@ -687,18 +676,21 @@ x111 xxxa aaab bbbb - CONFIGURATION REGISTER MAGIC NUMBER PROGRAMMING.
 Slow versus fast oscillators. Slow oscillator should give more uniform delay and less jitter for lower frequencies, while fast oscillator
 could give higher frequencies, but less stability at lower frequencies (could means that it behaves instable in SPICE, how it will in reality
 though is not known, while slow is definitely works under all conditions).
-</code>
+````
 
-==== Nonce Ranges & Chip Testing =====
+#### Nonce Ranges & Chip Testing
 
-[[https://bitcointalk.org/index.php?topic=228677.msg3241927#msg3241927]] :
+[Source](https://bitcointalk.org/index.php?topic=228677.msg3241927#msg3241927):
+
 >>Quote from: gingernuts on Today at 07:08:17 PM
 >>Does that mean that there are some valid nonces (~25%) that the chips just can't find, or can the S/W shift >>the starting nonce values to scan that space too?  Huh
 >First. Every core has 10 nonce bits hard coded, so 25% of the nonces won't be found.
+
 -----
 
-[[https://bitcointalk.org/index.php?topic=228677.msg3241975#msg3241975]] :
->Quote from: KNK on Today at 07:13:52 PM
+[Source](https://bitcointalk.org/index.php?topic=228677.msg3241975#msg3241975)
+
+> Quote from: KNK on Today at 07:13:52 PM
 >>Quote from: ckolivas on Today at 06:31:53 PM
 >>>Quote from: KNK on Today at 06:09:07 PM
 >>>>Quote from: ckolivas on Today at 05:46:20 PM
@@ -706,38 +698,45 @@ though is not known, while slow is definitely works under all conditions).
 >>>Would you please tell me which ones are those 3 ... i am just about to add some debugging code in that part and would like to put them first in the list
 >>
 >>These work:
+````
 >>>s |= rehash(op->midstate, op->m7, op->ntime, op->nbits, pn) ? pn : 0;
 >>>s |= rehash(op->midstate, op->m7, op->ntime, op->nbits, pn-0x00400000) ? pn - 0x00400000 : 0;
 >>>s |= rehash(op->midstate, op->m7, op->ntime, op->nbits, pn-0x00800000) ? pn - 0x00800000 : 0;
+````
 >>
 >>
 >>These never return anything:
+````
 >>>s |= rehash(op->midstate, op->m7, op->ntime, op->nbits, pn+0x02800000) ? pn + 0x02800000 : 0;
 >>>s |= rehash(op->midstate, op->m7, op->ntime, op->nbits, pn+0x02C00000) ? pn + 0x02C00000 : 0;
 >>>s |= rehash(op->midstate, op->m7, op->ntime, op->nbits, pn+0x00400000) ? pn + 0x00400000 : 0;
+````
 >
->Thanks!
+> Thanks!
 >The last one is the same as the second, so its expected that it won't be reached. It seems the chip can get bits 23 and/or 24 wrong ... and engineering chips probably 26 too
->I wonder is it an error from the core to the shift register or only when read from the register i.e. SPI communication problem
+> 
+> I wonder is it an error from the core to the shift register or only when read from the register i.e. SPI communication problem 
 
 to which cscape replied [[https://bitcointalk.org/index.php?topic=228677.msg3241990#msg3241990]] :
+
 >>Quote from: KNK on Today at 07:13:52 PM
 >>The last one is the same as the second, so its expected that it won't be reached. It seems the chip can get bits 23 and/or 24 wrong ... and engineering chips probably 26 too
 >>I wonder is it an error from the core to the shift register or only when read from the register i.e. SPI communication problem
->
->There's a clear pattern when you map the X/Y coordinates from the core to the variant, so it's not a communication problem, but a systematic issue.
+>  
+> There's a clear pattern when you map the X/Y coordinates from the core to the variant, so it's not a communication problem, but a systematic issue.
 
-and later wrote [[https://bitcointalk.org/index.php?topic=228677.msg3242089#msg3242089]] :
+and [later wrote](https://bitcointalk.org/index.php?topic=228677.msg3242089#msg3242089):
 
->I did a test on the S-HASH board. For one chip,  I marked all cores that returned a valid nonce.
-> {{ http://i.imgur.com/NCbXr3x.png }}
+> I did a test on the S-HASH board. For one chip,  I marked all cores that returned a valid nonce.
+> ![](http://i.imgur.com/NCbXr3x.png)
 >
->The same test on another chip shows three missing rows:
-> {{ http://i.imgur.com/xXFdNze.png }}
+> The same test on another chip shows three missing rows:
+> ![](http://i.imgur.com/xXFdNze.png)
 >
->The test has not run for very long, so some of the unmarked cores may still get a hit later.
+> The test has not run for very long, so some of the unmarked cores may still get a hit later.
 >
 >Of 16 chips total, 10 have found nonces in all cores. The other 6 all have one or more missing rows at the top.
+
 ===== Performance Testing And Results =====
 
 [[https://bitcointalk.org/index.php?topic=242745.msg3234190#msg3234190]] (google-translated)
