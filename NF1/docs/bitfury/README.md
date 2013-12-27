@@ -1,4 +1,4 @@
-## History of the Bitfury SHA-256 Chip
+### History of the Bitfury SHA-256 Chip
 
 It all started with this thread: [ANN: Bitfury is looking for alpha-testers of first chips! FREE MONEY HERE!](https://bitcointalk.org/index.php?topic=228677.0). 
 
@@ -1346,30 +1346,31 @@ Legkodymov announced here ([[https://bitcointalk.org/index.php?topic=242745.msg3
 >sudo make install
 >sudo reboot
 
-==== bfgminer ====
+### bfgminer
 
-source: [[https://bitcointalk.org/index.php?topic=287590.msg3079501#msg3079501]]
+[Source](https://bitcointalk.org/index.php?topic=287590.msg3079501#msg3079501):
+
 >Also there is a dev version of bfgminer is the works currently at :-
 >https://github.com/luke-jr/bfgminer/tree/littlefury
-====== Various Sources of information ======
 
-==== on bitfury's chip ====
-  * [[https://bitcointalk.org/index.php?topic=242745.0|Применение чипов Bitfury, схемные решения, корпу]]
-  * [[https://bitcointalk.org/index.php?topic=228677.240|[ANN] Bitfury is looking for alpha-testers of first chips! FREE MONEY HERE!]]
+### Various Sources of information
+
+#### on bitfury's chip
+  * [Применение чипов Bitfury, схемные решения, корпу](https://bitcointalk.org/index.php?topic=242745.0)
+  * [ [ANN] Bitfury is looking for alpha-testers of first chips! FREE MONEY HERE!](https://bitcointalk.org/index.php?topic=228677.240)
   * [[https://bitcointalk.org/index.php?topic=186234.0|Bitfury ASIC 65nm - 120 Gh/s (Украина)]]
   * [[https://bitcointalk.org/index.php?topic=183368.0|[Предзаказ] Bitfury ASIC 65nm]]
   * [[https://bitcointalk.org/index.php?topic=250249.0|[ANN] Bitfury ASIC sales in EU and Europe]]
   * [[https://bitcointalk.org/index.php?topic=242745.msg2720948#msg2720948]] - link to a sample schematic drawing
 
-==== other ====
-  * [[https://bitcentury.io/blog/initial-testing-of-bitfury-asic]]
-  * bitfury's own store for selling chips and boards: [[http://www.bitfurystrikesback.com/shop/]] (confirmed [[https://bitcointalk.org/index.php?topic=228677.msg2661590#msg2661590|here]])
-  * Sample board: [[http://dl.dropboxusercontent.com/u/61626088/bitfury/pdf/MainBoard.pdf]] also available here: {{::mainboard.pdf|}} (source: [[https://bitcointalk.org/index.php?topic=242745.msg2720948#msg2720948]] - aikenseer's idea)
+#### other
+  * https://bitcentury.io/blog/initial-testing-of-bitfury-asic
+  * Sample board: http://dl.dropboxusercontent.com/u/61626088/bitfury/pdf/MainBoard.pdf ([Source](https://bitcointalk.org/index.php?topic=242745.msg2720948#msg2720948) - aikenseer's idea)
   * [[http://habrahabr.ru/post/182912/|Получены фотографии кристалла специализированного Bitcoin-процессора Avalon]] Litography of Avalon's 300Mh/s ASIC
   * [[http://habrahabr.ru/post/184506/|Litography of Bitfury's processor]]
   * [[http://habrahabr.ru/post/185984/|Биткоин майнинг как вид спорта]]
 
-==== Where to buy the chips ====
-  * [[http://megabigpower.com/shop/]] in the US (operated by [[https://bitcointalk.org/index.php?action=profile;u=59574|buzzdave]]) [[https://bitcointalk.org/index.php?topic=251966.0|src]]
-  * [[http://www.bitfurystrikesback.com/]] in EU
-  * [[http://www.bitcoinza.com/]] SA
+### Where to buy the chips
+  * http://megabigpower.com/shop/ in the US (operated by [|buzzdave](https://bitcointalk.org/index.php?action=profile;u=59574)) [src](https://bitcointalk.org/index.php?topic=251966.0)
+  * http://www.bitfurystrikesback.com/ in EU (bitfury's own store for selling chips and boards, confirmed [here](https://bitcointalk.org/index.php?topic=228677.msg2661590#msg2661590)
+  * http://www.bitcoinza.com/ in SA
